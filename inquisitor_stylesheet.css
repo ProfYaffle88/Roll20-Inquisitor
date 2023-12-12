@@ -1,0 +1,708 @@
+.charsheet .sheet-character,
+.charsheet .sheet-talents,
+.charsheet .sheet-gear,
+.charsheet .sheet-lore {
+    display: none;
+}
+
+/* show the selected tab */
+.charsheet .sheet-tabstoggle[value="core"] ~ div.sheet-character,
+.charsheet .sheet-tabstoggle[value="talents"] ~ div.sheet-talents,
+.charsheet .sheet-tabstoggle[value="gear"] ~ div.sheet-gear,
+.charsheet .sheet-tabstoggle[value="lore"] ~ div.sheet-lore {
+    display: block;
+}
+
+.btn:focus {
+	border-color: red;
+}
+
+/*this styles the span with the tab information and slides to the left, so it appears underneath the radio button*/
+.charsheet span.sheet-tab {
+	text-align    : center;
+	display       : inline-block;
+	font-size     : 12px;
+	background    : rgba(229, 229, 229, 0.34);
+	color         : black;
+	border        : solid 1px rgba(0, 0, 0, 0.21);
+	font-weight   : bold;
+	border-radius : 35px;
+	width         : 90px;
+	height        : 40px;
+	cursor        : pointer;
+	position      : relative;
+	vertical-align: middle;
+	margin-left   : -95px;
+}
+
+/* CSS Reset */
+.charsheet .sheet-wrapper div,
+.charsheet .sheet-wrapper span,
+.charsheet .sheet-wrapper label,
+.charsheet .sheet-wrapper h1,
+.charsheet .sheet-wrapper h2,
+.charsheet .sheet-wrapper h3,
+.charsheet .sheet-wrapper h4,
+.charsheet .sheet-wrapper h5,
+.charsheet .sheet-wrapper h6,
+.charsheet .sheet-wrapper p,
+.charsheet .sheet-wrapper table,
+.charsheet .sheet-wrapper caption,
+.charsheet .sheet-wrapper tbody,
+.charsheet .sheet-wrapper tfoot,
+.charsheet .sheet-wrapper thead,
+.charsheet .sheet-wrapper tr,
+.charsheet .sheet-wrapper th,
+.charsheet .sheet-wrapper td {
+	margin        : 0;
+	padding       : 0;
+	border        : 0;
+	font-size     : 100%;
+	font          : inherit;
+	color         : #f0f0f0;
+	vertical-align: baseline;
+	box-sizing    : border-box;
+}
+
+.charsheet .sheet-wrapper table {
+	border-collapse: collapse;
+	border-spacing : 0;
+}
+
+.charsheet .sheet-wrapper input::-webkit-outer-spin-button,
+.charsheet .sheet-wrapper input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin            : 0;
+}
+
+.charsheet .sheet-wrapper input[type="number"] {
+	-moz-appearance: textfield;
+}
+
+.charsheet .sheet-wrapper textarea {
+	resize: none;
+}
+
+/* Button Reset */
+
+.charsheet .sheet-wrapper button[type="roll"]:before {
+	content: "" !important;
+	display: none;
+}
+
+.charsheet .sheet-wrapper button[type="roll"],
+.charsheet .sheet-wrapper .sheet-btn {
+	width              : 100%;
+	height             : 24px;
+	vertical-align     : middle;
+	padding            : 0;
+	display            : inline-block;
+	margin             : 0;
+	font-weight        : 400;
+	text-align         : center;
+	vertical-align     : middle;
+	cursor             : pointer;
+	background-image   : none;
+	background-color   : transparent;
+	border             : 1px solid #ccc;
+	white-space        : nowrap;
+	border-radius      : 4px;
+	-webkit-user-select: none;
+	-moz-user-select   : none;
+	-ms-user-select    : none;
+	user-select        : none;
+	box-sizing         : border-box;
+	-moz-box-sizing    : border-box;
+	-webkit-box-sizing : border-box;
+}
+
+.charsheet .sheet-wrapper button[type="roll"]:hover,
+.charsheet .sheet-wrapper .sheet-btn:hover,
+.charsheet .sheet-wrapper .sheet-hider input[type=checkbox]:checked~.sheet-btn {
+	background-color: #00db07;
+	border-color    : #00db07;
+}
+
+.charsheet .sheet-wrapper button[type="roll"] label,
+.charsheet .sheet-wrapper button[type="roll"] input {
+	height        : 24px;
+	line-height   : 24px;
+	font-size     : 13px;
+	vertical-align: middle;
+	text-align    : center;
+	width         : 99%;
+	cursor        : pointer;
+	background    : none;
+	box-shadow    : none;
+	transition    : none;
+	border-radius : 0;
+	border        : none;
+	font-weight   : 700;
+}
+
+.charsheet .sheet-wrapper button[type="roll"]:hover label,
+.charsheet .sheet-wrapper button[type="roll"]:hover input {
+	color : white;
+	border: none;
+}
+
+/* Main Styles */
+
+.charsheet {
+	background-image: url(https://i.imgur.com/OkkXSLH.png);
+	font-family     : Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	font-size       : 14px;
+}
+
+.charsheet .sheet-wrapper h3 {
+	color         : rgb(18, 255, 18);
+	padding       : 3px;
+	margin-bottom : 5px;
+	font-size     : 18px;
+	font-weight   : bold;
+	font-family   : inherit;
+	text-transform: uppercase;
+	text-align    : center;
+}
+
+.charsheet .sheet-wrapper textarea {
+	display             : inline-block;
+	border              : 1px solid #aaa;
+	padding             : 2px;
+	height              : 24px;
+	width               : 100%;
+	font-size           : 14px;
+	font-family         : inherit;
+	line-height         : 16px;
+	font-weight         : normal;
+	margin              : 0;
+	color               : rgb(18, 255, 18);
+	background-color    : rgb(0, 0, 0);
+	vertical-align      : middle;
+	cursor              : auto;
+	letter-spacing      : normal;
+	word-spacing        : normal;
+	text-transform      : none;
+	text-indent         : 0px;
+	text-shadow         : none;
+	text-align          : start;
+	-webkit-rtl-ordering: logical;
+	-webkit-user-select : text;
+	box-shadow          : inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	transition          : border linear .2s, box-shadow linear .2s;
+	border-radius       : 3px;
+	writing-mode        : horizontal-tb;
+	-webkit-writing-mode: horizontal-tb;
+}
+
+.charsheet .sheet-wrapper input,
+.charsheet .sheet-wrapper select,
+.charsheet .sheet-wrapper input[type="number"] {
+	display             : inline-block;
+	border-bottom       : 1px dotted rgb(255, 255, 255);
+	border-top          : none;
+	border-left         : none;
+	border-right        : none;
+	padding             : 2px;
+	height              : 24px;
+	width               : 100%;
+	font-size           : 14px;
+	font-family         : inherit;
+	line-height         : 16px;
+	font-weight         : normal;
+	margin              : 0;
+	color               : rgb(18, 255, 18);
+	background-color    : transparent;
+	vertical-align      : middle;
+	cursor              : auto;
+	letter-spacing      : normal;
+	word-spacing        : normal;
+	text-transform      : none;
+	text-indent         : 0px;
+	text-shadow         : none;
+	text-align          : start;
+	-webkit-rtl-ordering: logical;
+	-webkit-user-select : text;
+	box-shadow          : inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	transition          : border linear .2s, box-shadow linear .2s;
+	border-radius       : 3px;
+	writing-mode        : horizontal-tb;
+	-webkit-writing-mode: horizontal-tb;
+}
+
+.charsheet .sheet-wrapper input:not([type='checkbox']) {
+	-webkit-appearance: textfield;
+}
+
+.charsheet .sheet-wrapper input[type="checkbox"] {
+	height: 13px;
+	width : 13px;
+	color : rgb(18, 255, 18);
+	border: 1px solid #ffffff;
+
+	border-radius: 0;
+
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	transition: border linear .2s, box-shadow linear .2s;
+}
+
+.charsheet .sheet-wrapper input[disabled],
+.charsheet .sheet-wrapper select[disabled],
+.charsheet .sheet-wrapper textarea[disabled],
+.charsheet .sheet-wrapper input[readonly],
+.charsheet .sheet-wrapper select[readonly],
+.charsheet .sheet-wrapper textarea[readonly] {
+	background-color: transparent;
+	border-color    : #ffffff;
+	cursor          : not-allowed;
+	pointer-events  : none;
+}
+
+.charsheet .sheet-wrapper textarea {
+	width      : 98%;
+	height     : 80px;
+	line-height: 16px;
+}
+
+.charsheet .sheet-wrapper label {
+	display       : inline-block;
+	width         : 100%;
+	font-size     : 14px;
+	text-align    : left;
+	font-weight   : 600;
+	height        : 24px;
+	line-height   : 24px;
+	vertical-align: middle;
+}
+
+.charsheet .sheet-wrapper .sheet-3colrow .sheet-col {
+	width       : calc(40% - 9px) !important;
+	margin-right: 5px !important;
+}
+
+.charsheet .sheet-wrapper .sheet-3colrow .sheet-col:nth-child(2) {
+	width       : calc(20% - 9px) !important;
+	margin-right: 5px;
+}
+
+.charsheet .sheet-wrapper .sheet-3colrow .sheet-col:last-child {
+	margin-right: 0 !important;
+}
+
+.charsheet .sheet-wrapper .sheet-2colrow .sheet-col {
+	width       : calc(50% - 3px) !important;
+	float		: left;
+	margin-right: 2px !important;
+}
+
+.charsheet .sheet-wrapper .sheet-2colrow .sheet-col:last-child {
+	margin-right: 0 !important;
+}
+
+.charsheet .sheet-wrapper .sheet-1colrow .sheet-col {
+	width       : calc(100% - 3px) !important;
+	margin-right: 0 !important;
+}
+
+/* Table Container */
+
+.charsheet .sheet-wrapper .sheet-tablecontainer {
+	display: table;
+}
+
+.charsheet .sheet-wrapper .sheet-tablecell {
+	display: table-cell;
+}
+
+/* Special Styles */
+
+.charsheet .sheet-wrapper .sheet-skills td:first-child {
+	width        : 70%;
+	height       : 24px;
+	border-bottom: 1px solid rgb(255, 255, 255);
+}
+
+.charsheet .sheet-wrapper .sheet-skills td:nth-child(n+2) {
+	width     : 24px;
+	height    : 24px;
+	border    : 1px solid rgb(255, 255, 255);
+	text-align: center;
+}
+
+.charsheet .sheet-wrapper .sheet-skills button[type="roll"] {
+	width: 24px;
+}
+
+.charsheet .sheet-wrapper .sheet-skills input[type="number"],
+.charsheet .sheet-wrapper .sheet-quickborder input[type="number"] {
+	text-align: center;
+}
+
+.charsheet .sheet-wrapper .sheet-transparent {
+	background: transparent;
+	border    : transparent;
+}
+
+.charsheet .sheet-wrapper .sheet-inline {
+	display: inline-block;
+}
+
+.charsheet .sheet-wrapper .sheet-quickborder {
+	border       : 1px solid #ffffff;
+	padding      : 3px;
+	margin-bottom: 5px;
+}
+
+.charsheet .sheet-wrapper .sheet-uppercase {
+	text-transform: uppercase;
+}
+
+.charsheet .sheet-wrapper .sheet-uppercase label {
+	text-align: center;
+}
+
+.charsheet .sheet-wrapper .sheet-armourblock {
+	text-align: center;
+	margin    : auto auto 5px auto;
+	width     : calc(30% - 3px);
+	display   : inline-block;
+	justify-content: center;
+}
+
+.charsheet .sheet-wrapper .sheet-armourblock label {
+	text-align    : center;
+	text-transform: uppercase;
+}
+
+.charsheet .sheet-wrapper .sheet-armourblock input {
+	text-align: center;
+	font-size : 1.2em;
+}
+
+/* Rows and Items */
+
+.charsheet .sheet-wrapper .sheet-row {
+	height: 24px;
+	margin: 0 0 2px;
+}
+
+.charsheet .sheet-wrapper .sheet-doublerow {
+	height: 48px;
+	margin: 0 0 2px;
+}
+
+.charsheet .sheet-wrapper .sheet-alternative:nth-child(even) {
+	background-color: #b9dbb0;
+}
+
+.charsheet .sheet-wrapper .sheet-header {
+	height: 20px;
+	margin: 0;
+}
+
+.charsheet .sheet-wrapper .sheet-header label {
+	padding    : 0;
+	font-size  : 10px;
+	height     : 20px;
+	line-height: 20px;
+	font-weight: 700;
+}
+
+.charsheet .sheet-wrapper .sheet-item {
+	display       : inline-block;
+	width         : 100%;
+	height        : 28px;
+	vertical-align: middle;
+	margin        : 0 -2px;
+	text-align    : left;
+	padding       : 3px 2px;
+}
+
+.charsheet .sheet-wrapper .sheet-brackets {
+	border-left  : 1px solid #a1ff54;
+	border-right : 1px solid #a1ff54;
+	border-radius: 12px;
+}
+
+.charsheet .sheet-wrapper .sheet-item.sheet-center {
+	text-align: center;
+}
+
+.charsheet .sheet-wrapper .sheet-item.sheet-multiline label {
+	line-height: 12px;
+	padding-top: 1px;
+}
+
+.charsheet .sheet-wrapper .sheet-item.sheet-puny {
+	width: calc(10% - 3%);
+}
+
+.charsheet .sheet-wrapper .sheet-item.sheet-little {
+	width: calc(12% - 0.5%);
+}
+
+.charsheet .sheet-wrapper .sheet-item.sheet-tiny {
+	width: calc(15% - 2%);
+}
+
+.charsheet .sheet-wrapper .sheet-item.sheet-small {
+	width: calc(20% - 0.5%);
+}
+
+.charsheet .sheet-wrapper textarea.sheet-small {
+	height: 32px;
+}
+
+.charsheet .sheet-wrapper .sheet-item.sheet-med {
+	width: calc(30% - 0.5%);
+}
+
+.charsheet .sheet-wrapper .sheet-item.sheet-large {
+	width: calc(40% - 3%);
+}
+
+.charsheet .sheet-wrapper .sheet-item.sheet-big {
+	width: calc(50% - 11%);
+}
+
+.charsheet .sheet-wrapper .sheet-item.sheet-morebig {
+	width: calc(60% - 3%);
+}
+
+.charsheet .sheet-wrapper .sheet-item.sheet-bigger {
+	width: calc(70% - 3%);
+}
+
+.charsheet .sheet-wrapper .sheet-item.sheet-huge {
+	width: calc(80% - 3%);
+}
+
+/* Characteristics */
+
+.charsheet .sheet-wrapper .sheet-characteristics button[type="roll"] label,
+.charsheet .sheet-wrapper .sheet-characteristics button[type="roll"] input {
+	height        : 20px;
+	line-height   : 20px;
+	font-size     : 15px;
+	font-weight   : bold;
+	font-family   : inherit;
+	vertical-align: center;
+	text-align    : center;
+	width         : 99%;
+	cursor        : pointer;
+	background    : none;
+	box-shadow    : none;
+	transition    : none;
+	border-radius : 0;
+	border        : none;
+}
+
+.charsheet .sheet-wrapper .sheet-characteristics button[type="roll"]:hover label,
+.charsheet .sheet-wrapper .sheet-characteristics button[type="roll"]:hover input {
+	color           : #fff;
+	border          : none;
+	background-color: #a1ff54;
+	border-color    : #a1ff54;
+	border-radius   : 5px;
+}
+
+.charsheet .sheet-wrapper .sheet-characteristics button[type="roll"] {
+	border          : none;
+	background-color: transparent;
+	width           : 100%;
+	margin          : auto;
+	text-align      : center;
+	font-family     : inherit;
+}
+
+.charsheet .sheet-wrapper .sheet-characteristics select {
+	display         : inline-block;
+	width           : 100%;
+	text-align      : center;
+	background-color: transparent;
+	border          : 0;
+	font-weight     : bold;
+}
+
+.charsheet .sheet-wrapper .sheet-characteristics input {
+	display         : block;
+	border          : 1px solid gray;
+	background-color: transparent;
+	width           : 70%;
+	height          : 65px;
+	margin          : auto;
+	text-align      : center;
+	font-weight     : bolder;
+	font-family     : inherit;
+	font-size       : 3em;
+}
+
+/* Footer */
+
+.charsheet .sheet-wrapper .sheet-footer {
+	display       : inline-block;
+	padding       : 5px;
+	vertical-align: super;
+	font-size     : 0.9em;
+	line-height   : 0.8em;
+	text-align    : center;
+}
+
+.charsheet .sheet-wrapper .sheet-innerfooter {
+	display: inline-block;
+	border : inherit;
+	width  : 47%;
+	padding: 2px;
+}
+
+.charsheet .sheet-wrapper .sheet-innerfooter input {
+	width     : 100%;
+	margin-top: -7px;
+}
+
+.sheet-mainleft {
+	width        : 39%;
+	float        : left;
+	padding-right: 1%;
+}
+
+.sheet-mainright {
+	width: 39%;
+	float: right;
+}
+
+.sheet-rolltemplate-customtest table {
+	width      : 100%;
+	border     : 1px solid;
+	color      : white;
+	font-size  : 1em;
+	font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.sheet-rolltemplate-customtest th {
+	background-color: rgb(78, 130, 32);
+	color           : #ffffff;
+	padding         : 2px;
+	border-bottom   : 1px solid white;
+	line-height     : 1.6em;
+	font-size       : 1.2em;
+}
+
+.sheet-rolltemplate-inq table {
+	width     : 100%;
+	padding   : 2px;
+	background: url(https://i.imgur.com/OkkXSLH.png) top left repeat;
+}
+
+.sheet-rolltemplate-inq .sheet-rolltemplate-spacer {
+	max-width : 100%;
+	height    : auto;
+	max-height: 15px;
+	float     : left;
+}
+
+.sheet-rolltemplate-inq .sheet-rolltemplate-spacer.sheet-invert {
+	-webkit-transform: scaleX(-1);
+	transform        : scaleX(-1);
+	float            : right;
+}
+
+.sheet-rolltemplate-inq .sheet-tcat {
+	font-weight: bold;
+}
+
+.sheet-rolltemplate-inq .sheet-topline {
+	height: 5px;
+}
+
+.sheet-rolltemplate-inq .sheet-topline span {
+	border-top  : 2px solid white;
+	display     : block;
+	margin-left : 10px;
+	margin-right: 35px;
+}
+
+.sheet-rolltemplate-inq th.sheet-title {
+	color         : white;
+	padding-left  : 5px;
+	padding-top   : 5px;
+	line-height   : 1.1em;
+	font-size     : 1.5em;
+	text-align    : left;
+	text-transform: capitalize;
+}
+
+.sheet-rolltemplate-inq tr {
+	height: 20px;
+}
+
+.sheet-rolltemplate-inq td {
+	padding-left: 10px;
+	font-size   : 15px;
+	color       : rgb(255, 255, 255);
+}
+
+.sheet-rolltemplate-inq td:last-child {
+	float        : right;
+	padding-left : 0;
+	padding-right: 20px;
+}
+
+.sheet-rolltemplate-inq tr.sheet-success th,
+.sheet-rolltemplate-inq tr.sheet-failure th {
+	padding-left: 0px;
+	padding-top : 5px;
+	text-align  : center;
+	font-size   : 1.3em;
+	font-weight : bold;
+}
+
+.sheet-rolltemplate-inq .inlinerollresult {
+	padding         : 0;
+	background-color: transparent;
+	border          : none;
+}
+
+.sheet-rolltemplate-inq .sheet-inlinerollresult {
+	min-width       : 1.5em;
+	text-align      : center;
+	background-color: transparent;
+	border          : none;
+	padding         : 0;
+	padding-right   : 20px;
+	font-weight     : bold;
+	font-size       : 1.1em;
+}
+
+.sheet-rolltemplate-inq .sheet-success .inlinerollresult,
+.sheet-rolltemplate-inq .sheet-damage .inlinerollresult.fullcrit {
+	color      : #3FB315;
+	font-weight: bold;
+}
+
+.sheet-rolltemplate-inq .sheet-failure .inlinerollresult {
+	color      : #B31515;
+	font-weight: bold;
+}
+
+.sheet-rolltemplate-inq .inlinerollresult.fullcrit,
+.sheet-rolltemplate-inq .inlinerollresult.fullfail,
+.sheet-rolltemplate-inq .inlinerollresult.importantroll {
+	border: none;
+}
+
+.charsheet .sheet-wrapper .sheet-rangehide{
+display            : none;
+position           : absolute;
+top                : -15px;
+background-image   : url(https://i.imgur.com/OkkXSLH.png);
+background-position: center;
+border             : 1px solid #aaa;
+box-shadow         : inset 0 1px 1px rgba(0, 0, 0, 0.075);
+border-radius      : 3px;
+padding            : 3px;
+}
+
+.charsheet .sheet-wrapper .sheet-rangehover:hover ~ .sheet-rangehide {
+	display : block;
+}
