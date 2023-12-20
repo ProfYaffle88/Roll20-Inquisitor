@@ -1,18 +1,17 @@
 <!-- Logo Header -->
 <div class="sheet-wrapper">
-    <div class="sheet-1colrow sheet-col" style="margin-bottom:-30px; padding-right:5%; width:60%;">    
+    <div class="sheet-1colrow sheet-col" style="margin-bottom:-30px; padding-right:5%; width:60%;">
         <h1>INQUISITOR</h1>
-        <img src="https://i.imgur.com/SS6DfPd.png"
-            style="max-height: 100px; float:right">
+        <img src="https://i.imgur.com/SS6DfPd.png" style="max-height: 100px; float:right">
     </div>
 
     <!-- Tab set up-->
-    <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab"  value="core"  />
+    <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="core" />
     <div>
-        <button type="action" name="act_core" >Core</button>
-        <button type="action" name="act_talents" >Talents</button>
-        <button type="action" name="act_gear" >Gear</button>
-        <button type="action" name="act_lore" >Lore</button>
+        <button type="action" name="act_core">Core</button>
+        <button type="action" name="act_talents">Talents</button>
+        <button type="action" name="act_gear">Gear</button>
+        <button type="action" name="act_lore">Lore</button>
     </div>
 
     <!--GM Roll toggle-->
@@ -28,21 +27,26 @@
         <span>
             <div class="sheet-section-core">
                 <div class="sheet-wrapper">
-                    
+
                     <!-- Base Character Information -->
-                    <div class="sheet-1colrow sheet-col">        
-                        
+                    <div class="sheet-1colrow sheet-col">
+
                         <div class="sheet-row">
-                            <div class="sheet-item" style="width:14%"><label data-i18n="charactername">Character Name</label></div>
-                            <div class="sheet-item" style="width:35%"><input name="attr_character_name" type="text"></div>
-                            <div class="sheet-item" style="width:14%"><label data-i18n="playername">Player Name</label></div>
+                            <div class="sheet-item" style="width:14%"><label data-i18n="charactername">Character
+                                    Name</label></div>
+                            <div class="sheet-item" style="width:35%"><input name="attr_character_name" type="text">
+                            </div>
+                            <div class="sheet-item" style="width:14%"><label data-i18n="playername">Player Name</label>
+                            </div>
                             <div class="sheet-item" style="width:37%"><input name="attr_Player" type="text"></div>
                         </div>
 
                         <div class="sheet-row">
-                            <div class="sheet-item" style="width:12%"><label data-i18n="homeworld">Home World</label></div>
+                            <div class="sheet-item" style="width:12%"><label data-i18n="homeworld">Home World</label>
+                            </div>
                             <div class="sheet-item" style="width:20%"><input name="attr_Homeworld" type="text"></div>
-                            <div class="sheet-item" style="width:12%"><label data-i18n="careerpath">Career Path</label></div>
+                            <div class="sheet-item" style="width:12%"><label data-i18n="careerpath">Career Path</label>
+                            </div>
                             <div class="sheet-item" style="width:20%"><input name="attr_Career" type="text"></div>
                             <div class="sheet-item" style="width:7%"><label data-i18n="rank">Rank</label></div>
                             <div class="sheet-item" style="width:29%"><input name="attr_Rank" type="text"></div>
@@ -64,20 +68,24 @@
                         </div>
 
                         <div class="sheet-row">
-                            <div class="sheet-item" style="width:11%"><label data-i18n="skincolor">Skin Colour</label></div>
+                            <div class="sheet-item" style="width:11%"><label data-i18n="skincolor">Skin Colour</label>
+                            </div>
                             <div class="sheet-item" style="width:12%"><input name="attr_Skin" type="text"></div>
-                            <div class="sheet-item" style="width:11%"><label data-i18n="haircolor">Hair Colour</label></div>
+                            <div class="sheet-item" style="width:11%"><label data-i18n="haircolor">Hair Colour</label>
+                            </div>
                             <div class="sheet-item" style="width:12%"><input name="attr_Hair" type="text"></div>
-                            <div class="sheet-item" style="width:11%"><label data-i18n="eyecolor">Eye Colour</label></div>
+                            <div class="sheet-item" style="width:11%"><label data-i18n="eyecolor">Eye Colour</label>
+                            </div>
                             <div class="sheet-item" style="width:12%"><input name="attr_Eyes" type="text"></div>
-                            <div class="sheet-item" style="width:12%"><label data-i18n="handedness">Handedness</label></div>
+                            <div class="sheet-item" style="width:12%"><label data-i18n="handedness">Handedness</label>
+                            </div>
                             <div class="sheet-item" style="width:19%"><input name="attr_Handedness" type="text"></div>
                         </div>
 
                     </div>
 
                     <div class="sheet-2colrow sheet-col">
-                    
+
                         <!-- Left Column / Characteristics -->
                         <div class="sheet-col">
 
@@ -117,305 +125,321 @@
                                     value="@{abilityroll} &{template:inq} {{rollname=^{rollsg}}} [[([[1d100]]+?{Modifier|0})]] {{roll=$[[1]]}} {{skill=@{Sg}}} {{target=[[@{Sg} + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
                                     <label data-i18n="sagicitysg">Sagicity (Sg)</label></button>
                                 <input name="attr_Sg" type="text" value="0">
-                                
+
                                 <button name="roll_Nv" type="roll"
                                     value="@{abilityroll} &{template:inq} {{rollname=^{rollnv}}} [[([[1d100]]+?{Modifier|0})]] {{roll=$[[1]]}} {{skill=@{Nv}}} {{target=[[@{Nv} + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
                                     <label data-i18n="nervesnv">Nerves (Nv)</label></button>
                                 <input name="attr_Nv" type="text" value="0">
 
                                 <button name="roll_Ld" type="roll"
-                                value="@{abilityroll} &{template:inq} {{rollname=^{rollld}}} [[([[1d100]]+?{Modifier|0})]] {{roll=$[[1]]}} {{skill=@{Ld}}} {{target=[[@{Ld} + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
+                                    value="@{abilityroll} &{template:inq} {{rollname=^{rollld}}} [[([[1d100]]+?{Modifier|0})]] {{roll=$[[1]]}} {{skill=@{Ld}}} {{target=[[@{Ld} + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
                                     <label data-i18n="leadershipld">Leadership (Ld)</label></button>
                                 <input name="attr_Ld" type="text" value="0">
-                            </div>    
+                            </div>
                         </div>
 
                         <!-- Right Column - Armor & some buttons -->
-                            
-                            <div class="sheet-col">
 
-                                 <!-- Speed, Dodge, Parry -->
-                                <div class="sheet-colrow">
-                                    <div class="sheet-col">
-                                        <button name="roll_Speed" type="roll"
-                                            value="@{abilityroll} &{template:inq} {{rollname=^{rollsp}}} [[ (((@{attr_Sp})d6)>4) ]] {{roll=$[[1]]}} {{skill=@{Sp}}} {{diceroll=$[[0]]}}">
-                                            <label data-i18n="speedsp">Speed</label></button>
-                                            <input name="attr_Sp" type="number" value="round(@{In} / 20)+1" disabled="true">
-                
-                                        <button name="roll_dodge" type="roll"
-                                            value="@{abilityroll} &{template:inq} {{rollname=^{rolld}}} [[ (?{Times this turn | first (*1),*1 | second (*0.5),*0.5 | third (*0.25),*0.25 | fourth (*0.13),*0.13} [[1d100]]+?{Modifier|0}) ]] {{roll=$[[1]]}} {{skill=@{Ws}}} {{target=[[@{Ws}+20 + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
-                                            <label data-i18n="dodgeD">Dodge!</label></button>
-                
-                                        <button name="roll_parry" type="roll"
-                                            value="@{abilityroll} &{template:inq} {{rollname=^{rollp}}} [[ (?{Times this turn | first (*1),*1 | second (*0.5),*0.5 | third (*0.25),*0.25 | fourth (*0.13),*0.13} [[1d100]]+?{Modifier|0}) ]] {{roll=$[[1]]}} {{skill=@{Ws}}} {{target=[[@{Ws} + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
-                                            <label data-i18n="parryP">Parry!</label></button>
-            
-                                    </div>
-                                    <div class="sheet-col">
+                        <div class="sheet-col">
 
-                                        <label style="text-align: right;" data-i18n="biv">BIV:</label>
-                                        <input style="text-align: right;" name="attr_biv" type="number" value="round(@{T} / 10)" disabled="true">
-
-                                        <button name="roll_systemshock" type="roll"
-                                            value="@{abilityroll} &{template:inq} {{rollname=^{rollss}}} [[1d100]] {{roll=$[[1]]}} {{skill=@{T}}} {{target=[[@{T} + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
-                                            <label style="text-align: right;" data-i18n="systemshock">System Shock:</label></button>
-                                            <input style="text-align: right;" name="attr_systemshock" type="number" value="round(@{T} / 5)" disabled="true">
-                
-                                        <label style="text-align: right;" data-i18n="conc">Consciousness:</label>
-                                        <input style="text-align: right;" name="attr_conc" type="number" value="round(@{T} / 2)" disabled="true">
-                
-                                        <label style="text-align: right;" data-i18n="damtot">Damage Total:</label>
-                                        <input style="text-align: right;" name="attr_damtot" type="number" value="0">
-                                    </div>
-                                </div>
-                            
-                            
+                            <!-- Speed, Dodge, Parry -->
+                            <div class="sheet-colrow">
                                 <div class="sheet-col">
-                                    <div class="sheet-armourblock">   
-                                        <!--Armour-->
-                                        <h3 data-i18n="armor">Armour</h3>
-                                        <div class="sheet-armourblock">
+                                    <button name="roll_Speed" type="roll"
+                                        value="@{abilityroll} &{template:inq} {{rollname=^{rollsp}}} [[ (((@{attr_Sp})d6)>4) ]] {{roll=$[[1]]}} {{skill=@{Sp}}} {{diceroll=$[[0]]}}">
+                                        <label data-i18n="speedsp">Speed</label></button>
+                                    <input name="attr_Sp" type="number" value="round(@{In} / 20)+1" disabled="true">
+
+                                    <button name="roll_dodge" type="roll"
+                                        value="@{abilityroll} &{template:inq} {{rollname=^{rolld}}} [[ (?{Times this turn | first (*1),*1 | second (*0.5),*0.5 | third (*0.25),*0.25 | fourth (*0.13),*0.13} [[1d100]]+?{Modifier|0}) ]] {{roll=$[[1]]}} {{skill=@{Ws}}} {{target=[[@{Ws}+20 + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
+                                        <label data-i18n="dodgeD">Dodge!</label></button>
+
+                                    <button name="roll_parry" type="roll"
+                                        value="@{abilityroll} &{template:inq} {{rollname=^{rollp}}} [[ (?{Times this turn | first (*1),*1 | second (*0.5),*0.5 | third (*0.25),*0.25 | fourth (*0.13),*0.13} [[1d100]]+?{Modifier|0}) ]] {{roll=$[[1]]}} {{skill=@{Ws}}} {{target=[[@{Ws} + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
+                                        <label data-i18n="parryP">Parry!</label></button>
+
+                                </div>
+                                <div class="sheet-col">
+
+                                    <label style="text-align: right;" data-i18n="biv">BIV:</label>
+                                    <input style="text-align: right;" name="attr_biv" type="number"
+                                        value="round(@{T} / 10)" disabled="true">
+
+                                    <button name="roll_systemshock" type="roll"
+                                        value="@{abilityroll} &{template:inq} {{rollname=^{rollss}}} [[1d100]] {{roll=$[[1]]}} {{skill=@{T}}} {{target=[[@{T} + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
+                                        <label style="text-align: right;" data-i18n="systemshock">System
+                                            Shock:</label></button>
+                                    <input style="text-align: right;" name="attr_systemshock" type="number"
+                                        value="round(@{T} / 5)" disabled="true">
+
+                                    <label style="text-align: right;" data-i18n="conc">Consciousness:</label>
+                                    <input style="text-align: right;" name="attr_conc" type="number"
+                                        value="round(@{T} / 2)" disabled="true">
+
+                                    <label style="text-align: right;" data-i18n="damtot">Damage Total:</label>
+                                    <input style="text-align: right;" name="attr_damtot" type="number" value="0">
+                                </div>
+                            </div>
+
+
+                            <div class="sheet-col">
+                                <div class="sheet-armourblock">
+                                    <!--Armour-->
+                                    <h3 data-i18n="armor">Armour</h3>
+                                    <div class="sheet-armourblock">
                                         <div class="sheet-quickborder sheet-armourblock">
-                                            <label data-i18n="head">Head</label> <input name="attr_Headarmourvalue" type="number"> 
+                                            <label data-i18n="head">Head</label> <input name="attr_Headarmourvalue"
+                                                type="number">
                                             <label>Ablative</label> <input name="attr_Headabarmourtype" type="text">
                                         </div><br>
                                         <div class="sheet-quickborder sheet-armourblock">
-                                            <label data-i18n="leftarm">Left Arm</label> <input name="attr_LeftArmarmourvalue" type="number">
+                                            <label data-i18n="leftarm">Left Arm</label> <input
+                                                name="attr_LeftArmarmourvalue" type="number">
                                             <label>Ablative</label> <input name="attr_LeftArmabarmourtype" type="text">
                                         </div>
                                         <div class="sheet-quickborder sheet-armourblock">
-                                            <label data-i18n="chest">Chest</label> <input name="attr_Chestarmourvalue" type="number"> 
+                                            <label data-i18n="chest">Chest</label> <input name="attr_Chestarmourvalue"
+                                                type="number">
                                             <label>Ablative</label> <input name="attr_Chestabarmourtype" type="text">
                                         </div>
                                         <div class="sheet-quickborder sheet-armourblock">
-                                            <label data-i18n="rightarm">Right Arm</label> <input name="attr_RightArmarmourvalue" type="number">
+                                            <label data-i18n="rightarm">Right Arm</label> <input
+                                                name="attr_RightArmarmourvalue" type="number">
                                             <label>Ablative</label> <input name="attr_RightArmabarmourtype" type="text">
                                         </div><br>
                                         <div class="sheet-quickborder sheet-armourblock">
-                                            <label data-i18n="abdomen">Abdomen</label> <input name="attr_Abdoarmourvalue" type="number"> 
+                                            <label data-i18n="abdomen">Abdomen</label> <input
+                                                name="attr_Abdoarmourvalue" type="number">
                                             <label>Ablative</label> <input name="attr_Abdoabarmourtype" type="text">
                                         </div><br>
                                         <div class="sheet-quickborder sheet-armourblock">
-                                            <label data-i18n="groin">Groin</label> <input name="attr_Groinarmourvalue" type="number"> 
+                                            <label data-i18n="groin">Groin</label> <input name="attr_Groinarmourvalue"
+                                                type="number">
                                             <label>Ablative</label> <input name="attr_Groinabarmourtype" type="text">
                                         </div><br>
-                                        <div class="sheet-quickborder sheet-armourblock" style="margin: 20px auto auto 11%;">
-                                            <label data-i18n="leftleg">Left Leg</label> <input name="attr_LeftLegarmourvalue" type="number">
+                                        <div class="sheet-quickborder sheet-armourblock"
+                                            style="margin: 20px auto auto 11%;">
+                                            <label data-i18n="leftleg">Left Leg</label> <input
+                                                name="attr_LeftLegarmourvalue" type="number">
                                             <label>Ablative</label> <input name="attr_LeftabLegarmourtype" type="text">
                                         </div>
-                                        <div class="sheet-quickborder sheet-armourblock" style="margin: 20px auto auto 11%;">
-                                            <label data-i18n="rightleg">Right Leg</label> <input name="attr_RightLegarmourvalue" type="number">
+                                        <div class="sheet-quickborder sheet-armourblock"
+                                            style="margin: 20px auto auto 11%;">
+                                            <label data-i18n="rightleg">Right Leg</label> <input
+                                                name="attr_RightLegarmourvalue" type="number">
                                             <label>Ablative</label> <input name="attr_RightLegaabrmourtype" type="text">
                                         </div>
                                     </div>
                                 </div>
 
-                            <!--Ranged Weapons-->
-                            <div class="sheet-colrow">
-                                <div class="sheet-col">
-                                    <h3 data-i18n="rangedweapons">Ranged Weapons</h3>
-                                    <fieldset class="repeating_rangedweapons">
+                                <!--Ranged Weapons-->
+                                <div class="sheet-colrow">
+                                    <div class="sheet-col">
+                                        <h3 data-i18n="rangedweapons">Ranged Weapons</h3>
+                                        <fieldset class="repeating_rangedweapons">
 
-                                        <div class="sheet-quickborder">
+                                            <div class="sheet-quickborder">
 
-                                            <div class="sheet-row">
-                                                <div class="sheet-item" style="width:12%">
-                                                    <label data-i18n="name:">Name:</label>
-                                                </div>
-                                                <div class="sheet-item" style="width:37%">
-                                                    <input name="attr_rangedweaponname" type="text">
-                                                </div>
-                                                <div class="sheet-item" style="width:9%">
-                                                    <label data-i18n="type">Type:</label>
-                                                    <select id="type">
-                                                        <option value="melee">Melee</option>
-                                                        <option value="pistol">Pistol</option>
-                                                        <option value="rifle">Rifle</option>
-                                                        <option value="heavy">Heavy</option>
-                                                    </select>
-                                                </div>
-                                                <div class="sheet-item" style="width:9%">                
-                                                    <label data-i18n="rangeType">Range:</label>
-                                                    <select id="rangeType">
-                                                        <option value="A">A</option>
-                                                        <option value="B">B</option>
-                                                        <option value="C">C</option>
-                                                        <option value="D">D</option>
-                                                        <option value="E">E</option>
-                                                        <option value="F">F</option>
-                                                        <option value="G">G</option>
-                                                        <option value="H">H</option>
-                                                        <option value="I">I</option>
-                                                        <option value="J">J</option>
-                                                    </select>                                    
-                                                </div> 
+                                                <div class="sheet-row">
+                                                    <div class="sheet-item" style="width:12%">
+                                                        <label data-i18n="name:">Name:</label>
+                                                    </div>
+                                                    <div class="sheet-item" style="width:37%">
+                                                        <input name="attr_rangedweaponname" type="text">
+                                                    </div>
+                                                    <div class="sheet-item" style="width:9%">
+                                                        <label data-i18n="type">Type:</label>
+                                                        <select id="type">
+                                                            <option value="melee">Melee</option>
+                                                            <option value="pistol">Pistol</option>
+                                                            <option value="rifle">Rifle</option>
+                                                            <option value="heavy">Heavy</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="sheet-item" style="width:9%">
+                                                        <label data-i18n="rangeType">Range:</label>
+                                                        <select id="rangeType">
+                                                            <option value="A">A</option>
+                                                            <option value="B">B</option>
+                                                            <option value="C">C</option>
+                                                            <option value="D">D</option>
+                                                            <option value="E">E</option>
+                                                            <option value="F">F</option>
+                                                            <option value="G">G</option>
+                                                            <option value="H">H</option>
+                                                            <option value="I">I</option>
+                                                            <option value="J">J</option>
+                                                        </select>
+                                                    </div>
 
-                                                <div class="sheet-rangehide" data-i18n="range_description:"></div>
-                                                <div class="sheet-item" style="width: 9%; float: right;">
-                                                    <button name="roll_rangedhit" type="roll"
-                                                        value="@{abilityroll} &{template:inq} {{rollname=@{rangedweaponname} ^{tohit}}} [[(@{BS} ?{Aim | No aim (+0),+0 | One aim (+20),+20 | Two aim (+40),+40 | Three aim (+60),+60} ?{Range | 1-5 Yards | 6-10 Yards | 11-15 Yards | 16-20 Yards | 21-25 Yards | 26-30 Yards | 31-35 Yards | 36-40 Yards | 41-45 Yards | 46-50 Yards | 51-55 Yards | 56-60 Yards | 61-65 Yards | 66-70 Yards | 71-75 Yards} ?{Off hand | No (+0),+0 | Yes (-20),-20} ?{Rested Weapon | No (+0),+0 | Yes (+10),+10} ?{Target movement | Stationary (+0),+0 | Ran (-8),-8 | Sprinted (-12),-12 | Evaded (-20),-20} ?{Shots per Action | Standard/Single fire (+0),+0 | Semi auto: two shots (+20),+20 | Semi auto: three shots (+30),+30 | Semi auto: four shots (+40),+40 | Semi auto: five shots (+50),+50 | Semi auto: six shots (+60),+60} + ?{Modifier|0}+[[1d100]])]] {{weapondiceroll=$[[0]]}} {{roll=$[[1]]}} {{skill=@{BS}}} {{target=@{BS} ?{Aim | } ?{Range | } ?{Off hand | } ?{Rested Weapon | } ?{Target movement | } ?{Shots per Action | } + ?{Modifier|0}]]}} {{aim=?{Aim | }}} {{offhand=?{Off hand | }}} {{restedweapon=?{Rested Weapon | }}} {{targetmove=?{Target movement | }}} {{attacktype=?{Shots per Action | }}} {{modifier=?{Modifier|0}}}">
-                                                        <label data-i18n="hit">Hit</label>
-                                                    </button>
+                                                    <div class="sheet-rangehide" data-i18n="range_description:"></div>
+                                                    <div class="sheet-item" style="width: 9%; float: right;">
+                                                        <button name="roll_rangedhit" type="roll"
+                                                            value="@{abilityroll} &{template:inq} {{rollname=@{rangedweaponname} ^{tohit}}} [[(@{BS} ?{Aim | No aim (+0),+0 | One aim (+20),+20 | Two aim (+40),+40 | Three aim (+60),+60} ?{Range | 1-5 Yards | 6-10 Yards | 11-15 Yards | 16-20 Yards | 21-25 Yards | 26-30 Yards | 31-35 Yards | 36-40 Yards | 41-45 Yards | 46-50 Yards | 51-55 Yards | 56-60 Yards | 61-65 Yards | 66-70 Yards | 71-75 Yards} ?{Off hand | No (+0),+0 | Yes (-20),-20} ?{Rested Weapon | No (+0),+0 | Yes (+10),+10} ?{Target movement | Stationary (+0),+0 | Ran (-8),-8 | Sprinted (-12),-12 | Evaded (-20),-20} ?{Shots per Action | Standard/Single fire (+0),+0 | Semi auto: two shots (+20),+20 | Semi auto: three shots (+30),+30 | Semi auto: four shots (+40),+40 | Semi auto: five shots (+50),+50 | Semi auto: six shots (+60),+60} + ?{Modifier|0}+[[1d100]])]] {{weapondiceroll=$[[0]]}} {{roll=$[[1]]}} {{skill=@{BS}}} {{target=@{BS} ?{Aim | } ?{Range | } ?{Off hand | } ?{Rested Weapon | } ?{Target movement | } ?{Shots per Action | } + ?{Modifier|0}]]}} {{aim=?{Aim | }}} {{offhand=?{Off hand | }}} {{restedweapon=?{Rested Weapon | }}} {{targetmove=?{Target movement | }}} {{attacktype=?{Shots per Action | }}} {{modifier=?{Modifier|0}}}">
+                                                            <label data-i18n="hit">Hit</label>
+                                                        </button>
 
-                                                </div>
-                                            </div>
-
-                                            <div class="sheet-row">
-                                                <div class="sheet-item" style="width:15%">
-                                                    <label data-i18n="damage:">Damage:</label>
-                                                </div>
-                                                <div class="sheet-item" style="width:19%">
-                                                    <input name="attr_rangedweapondamage" type="text">
-                                                </div>
-                                                <div class="sheet-item" style="width:10%">
-                                                    <label data-i18n="damagetype:">Damage Type:</label>
-                                                </div>
-                                                <div class="sheet-item" name="attr_damagetype" style="width:15%">  
-                                                    <select id="damagetype:">
-                                                        <option value="kinetic">Kinetic</option>
-                                                        <option value="laser">Laser</option>
-                                                        <option value="plasma">Plasma</option>
-                                                        <option value="melta">Melta</option>
-                                                        <option value="special">Special</option>
-                                                    </select>                        
-                                                </div>
-                                                
-                                                <div class="sheet-item" style="width: 16%; float: right;">
-                                                    <button name="roll_rangeddamage" type="roll"
-                                                        value="@{abilityroll} &{template:inq} {{rollname=@{rangedweaponname} ^{damage}}} {{damage=[[@{rangedweapondamage}]]}} {{damagetype=@{damageType}}} {{special=@{rangedweaponspecial}}}">
-                                                        <label data-i18n="damage">Damage</label>
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            <div class="sheet-row">
-                                                <div class="sheet-item" style="width:15%">
-                                                    <label data-i18n="fmode">F Mode:</label>
-                                                </div>
-                                                <div class="sheet-item" style=width:10%>
-                                                    <input name="attr_fmode" type="text">
-                                                    
-                                                <div class="sheet-item" style="width:8%">
-                                                    <label data-i18n="clip:">Clip:</label>
-                                                </div>
-                                                <div class="sheet-item" style="width:10%">
-                                                    <input name="attr_rangedweaponclipcurrent" type="number" value="0">
-                                                </div>
-                                                <div class="sheet-item" style="width:2%">
-                                                    <label>/</label>
-                                                </div>
-                                                <div class="sheet-item" style="width:10%">
-                                                    <input name="attr_rangedweaponclipfull" type="number" value="0">
+                                                    </div>
                                                 </div>
 
-                                                <div class="sheet-item" style="width:10%">
-                                                    <label data-i18n="reload:">Rld:</label>
-                                                </div>
-                                                <div class="sheet-item" style="width:10%">
-                                                    <input name="attr_rangedweaponreload" type="text">
+                                                <div class="sheet-row">
+                                                    <div class="sheet-item" style="width:15%">
+                                                        <label data-i18n="damage:">Damage:</label>
+                                                    </div>
+                                                    <div class="sheet-item" style="width:19%">
+                                                        <input name="attr_rangedweapondamage" type="text">
+                                                    </div>
+                                                    <div class="sheet-item" style="width:10%">
+                                                        <label data-i18n="damagetype:">Damage Type:</label>
+                                                    </div>
+                                                    <div class="sheet-item" name="attr_damagetype" style="width:15%">
+                                                        <select id="damagetype:">
+                                                            <option value="kinetic">Kinetic</option>
+                                                            <option value="laser">Laser</option>
+                                                            <option value="plasma">Plasma</option>
+                                                            <option value="melta">Melta</option>
+                                                            <option value="special">Special</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="sheet-item" style="width: 16%; float: right;">
+                                                        <button name="roll_rangeddamage" type="roll"
+                                                            value="@{abilityroll} &{template:inq} {{rollname=@{rangedweaponname} ^{damage}}} {{damage=[[@{rangedweapondamage}]]}} {{damagetype=@{damageType}}} {{special=@{rangedweaponspecial}}}">
+                                                            <label data-i18n="damage">Damage</label>
+                                                        </button>
+                                                    </div>
                                                 </div>
 
-                                                <div class="sheet-item" style="width:15%">
-                                                    <label data-i18n="weight:">Weight:</label>
-                                                </div>
-                                                <div class="sheet-item" style="width:10%">
-                                                    <input name="attr_weight" type="text">
-                                                </div>
-                                            </div>
+                                                <div class="sheet-row">
+                                                    <div class="sheet-item" style="width:15%">
+                                                        <label data-i18n="fmode">F Mode:</label>
+                                                    </div>
+                                                    <div class="sheet-item" style=width:10%>
+                                                        <input name="attr_fmode" type="text">
 
-                                            <div class="sheet-row">
-                                                <div class="sheet-item" style="width:15%">
-                                                    <label data-i18n="special:">Special:</label>
-                                                </div>
-                                                <div class="sheet-item" style="width:75%">
-                                                    <input name="attr_rangedweaponspecial" type="text">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
+                                                        <div class="sheet-item" style="width:8%">
+                                                            <label data-i18n="clip:">Clip:</label>
+                                                        </div>
+                                                        <div class="sheet-item" style="width:10%">
+                                                            <input name="attr_rangedweaponclipcurrent" type="number"
+                                                                value="0">
+                                                        </div>
+                                                        <div class="sheet-item" style="width:2%">
+                                                            <label>/</label>
+                                                        </div>
+                                                        <div class="sheet-item" style="width:10%">
+                                                            <input name="attr_rangedweaponclipfull" type="number"
+                                                                value="0">
+                                                        </div>
 
-                                    <!-- Melee Weapons -->
-                                    <h3 data-i18n="meleeweapons">Melee Weapons</h3>
-                                    <fieldset class="repeating_meleeweapons">
-                                        <div class="sheet-quickborder">
-                                            <div class="sheet-row">
-                                                <div class="sheet-item" style="width:15%">
-                                                    <label data-i18n="name:">Name:</label>
+                                                        <div class="sheet-item" style="width:10%">
+                                                            <label data-i18n="reload:">Rld:</label>
+                                                        </div>
+                                                        <div class="sheet-item" style="width:10%">
+                                                            <input name="attr_rangedweaponreload" type="text">
+                                                        </div>
+
+                                                        <div class="sheet-item" style="width:15%">
+                                                            <label data-i18n="weight:">Weight:</label>
+                                                        </div>
+                                                        <div class="sheet-item" style="width:10%">
+                                                            <input name="attr_weight" type="text">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="sheet-row">
+                                                        <div class="sheet-item" style="width:15%">
+                                                            <label data-i18n="special:">Special:</label>
+                                                        </div>
+                                                        <div class="sheet-item" style="width:75%">
+                                                            <input name="attr_rangedweaponspecial" type="text">
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="sheet-item" style="width:55%">
-                                                    <input name="attr_meleeweaponname" type="text">
+                                        </fieldset>
+
+                                        <!-- Melee Weapons -->
+                                        <h3 data-i18n="meleeweapons">Melee Weapons</h3>
+                                        <fieldset class="repeating_meleeweapons">
+                                            <div class="sheet-quickborder">
+                                                <div class="sheet-row">
+                                                    <div class="sheet-item" style="width:15%">
+                                                        <label data-i18n="name:">Name:</label>
+                                                    </div>
+                                                    <div class="sheet-item" style="width:55%">
+                                                        <input name="attr_meleeweaponname" type="text">
+                                                    </div>
+                                                    <div class="sheet-item" style="width:12%">
+                                                        <label data-i18n="class:">Class:</label>
+                                                    </div>
+                                                    <div class="sheet-item" style="width:19%">
+                                                        <input name="attr_meleeweaponclass" type="text">
+                                                    </div>
                                                 </div>
-                                                <div class="sheet-item" style="width:12%">
-                                                    <label data-i18n="class:">Class:</label>
+
+                                                <div class="sheet-row">
+                                                    <div class="sheet-item" style="width:15%">
+                                                        <label data-i18n="damage:">Damage:</label>
+                                                    </div>
+                                                    <div class="sheet-item" style="width:20%">
+                                                        <input name="attr_meleeweapondamage" type="text">
+                                                    </div>
+                                                    <div class="sheet-item" style="width:12%">
+                                                        <label data-i18n="type:">Type:</label>
+                                                    </div>
+                                                    <div class="sheet-item" style="width:18%">
+                                                        <input name="attr_meleeweapontype" type="text">
+                                                    </div>
+                                                    <div class="sheet-item" style="width:10%; float: right;">
+                                                        <button name="roll_meleehit" type="roll"
+                                                            value="@{abilityroll} &{template:inq} {{rollname=@{meleeweaponname} ^{tohit}}} [[[[1d100]]-?{Modifier|0}]] {{weapondiceroll=$[[0]]}} {{roll=$[[1]]}} {{target=[[@{WS}-?{Attack Type | Standard (+0),+0 | Charge (+10),+10}]]}} {{attacktype=?{Attack Type | }}} {{modifier=?{Modifier|0}}}">
+                                                            <label data-i18n="hit">Hit</label>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                                <div class="sheet-item" style="width:19%">
-                                                    <input name="attr_meleeweaponclass" type="text">
+
+                                                <div class="sheet-row">
+                                                    <div class="sheet-item" style="width:15%">
+                                                        <label data-i18n="special:">Special:</label>
+                                                    </div>
+                                                    <div class="sheet-item" style="width:70%">
+                                                        <input name="attr_meleeweaponspecial" type="text">
+                                                    </div>
+                                                    <div class="sheet-item" style="width:16%; float: right;">
+                                                        <button name="roll_meleedamage" type="roll"
+                                                            value="@{abilityroll} &{template:inq} {{rollname=@{meleeweaponname} ^{damage}}} {{damage=[[@{meleeweapondamage}]]}} {{damagetype=@{meleeweapontype}}} {{special=@{meleeweaponspecial}}}">
+                                                            <label data-i18n="damage">Damage</label>
+                                                        </button>
+                                                    </div>
                                                 </div>
-                                            </div>
-                            
-                                        <div class="sheet-row">
-                                            <div class="sheet-item" style="width:15%">
-                                                <label data-i18n="damage:">Damage:</label>
-                                            </div>
-                                            <div class="sheet-item" style="width:20%">
-                                                <input name="attr_meleeweapondamage" type="text">
-                                            </div>
-                                            <div class="sheet-item" style="width:12%">
-                                                <label data-i18n="type:">Type:</label>
-                                            </div>
-                                            <div class="sheet-item" style="width:18%">
-                                                <input name="attr_meleeweapontype" type="text">
-                                            </div>
-                                            <div class="sheet-item" style="width:10%; float: right;">
-                                                <button name="roll_meleehit" type="roll"
-                                                    value="@{abilityroll} &{template:inq} {{rollname=@{meleeweaponname} ^{tohit}}} [[[[1d100]]-?{Modifier|0}]] {{weapondiceroll=$[[0]]}} {{roll=$[[1]]}} {{target=[[@{WS}-?{Attack Type | Standard (+0),+0 | Charge (+10),+10}]]}} {{attacktype=?{Attack Type | }}} {{modifier=?{Modifier|0}}}">
-                                                    <label data-i18n="hit">Hit</label>
-                                                </button>
-                                            </div>
-                                        </div>
-                            
-                                        <div class="sheet-row">
-                                            <div class="sheet-item" style="width:15%">
-                                                <label data-i18n="special:">Special:</label>
-                                            </div>
-                                            <div class="sheet-item" style="width:70%">
-                                                <input name="attr_meleeweaponspecial" type="text">
-                                            </div>
-                                            <div class="sheet-item" style="width:16%; float: right;">
-                                                <button name="roll_meleedamage" type="roll"
-                                                    value="@{abilityroll} &{template:inq} {{rollname=@{meleeweaponname} ^{damage}}} {{damage=[[@{meleeweapondamage}]]}} {{damagetype=@{meleeweapontype}}} {{special=@{meleeweaponspecial}}}">
-                                                    <label data-i18n="damage">Damage</label>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </fieldset>
+                                        </fieldset>
+                                    </div>
                                 </div>
                             </div>
-                        </div>                                
-                    </div>                                            
-                </span>
+                        </div>
+        </span>
     </div>
 
 
 
     <div class="sheet-talents">
         <h2>Talents and Powers</h2>
-        <span>        
-                <h3 data-i18n="talents">Talents & Traits</h3>
-                <fieldset class="repeating_talents2">
-                    <input name="attr_reptalent2" type="text">
-                </fieldset>
+        <span>
+            <h3 data-i18n="talents">Talents & Traits</h3>
+            <fieldset class="repeating_talents2">
+                <input name="attr_reptalent2" type="text">
+            </fieldset>
 
-                <h3 data-i18n="psykana">Psykana & Powers</h3>
-                <textarea name="attr_psykana" style="width:95%; margin:auto; height:75px;">
+            <h3 data-i18n="psykana">Psykana & Powers</h3>
+            <textarea name="attr_psykana" style="width:95%; margin:auto; height:75px;">
                 </textarea>
 
-                <h3 data-i18n="mutations">Mutations</h3>
-                <textarea name="attr_mutations" style="width:95%; margin:auto; height:75px;">
+            <h3 data-i18n="mutations">Mutations</h3>
+            <textarea name="attr_mutations" style="width:95%; margin:auto; height:75px;">
                 </textarea>
 
-                <h3 data-i18n="marks">Marks & Wards</h3>
-                <textarea name="att_marks" style="width:95%; margin:auto; height:75px;">
+            <h3 data-i18n="marks">Marks & Wards</h3>
+            <textarea name="att_marks" style="width:95%; margin:auto; height:75px;">
                 </textarea>
         </span>
     </div>
@@ -493,7 +517,7 @@
     });
 </script>
 
-            
+
 
 
 <!--Roll Template test-->
@@ -503,9 +527,7 @@
             <th colspan="2" class="sheet-title">{{rollname}}</th>
         </tr>
         <tr>
-            <th colspan="2"><img
-                    src="https://i.imgur.com/qsQttUE.png"
-                    class="sheet-rolltemplate-spacer"></th>
+            <th colspan="2"><img src="https://i.imgur.com/qsQttUE.png" class="sheet-rolltemplate-spacer"></th>
         </tr>
         {{#aim}}
         <tr>
@@ -560,9 +582,8 @@
         {{/threshold}}
         {{#diceroll}}
         <tr>
-            <th colspan="2"><img
-                    src="https://i.imgur.com/qsQttUE.png"
-                    class="sheet-rolltemplate-spacer sheet-invert"></th>
+            <th colspan="2"><img src="https://i.imgur.com/qsQttUE.png" class="sheet-rolltemplate-spacer sheet-invert">
+            </th>
         </tr>
         <tr>
             <td><span class="sheet-tcat" data-i18n="diceroll:">dice roll: </span></td>
@@ -571,9 +592,8 @@
         {{/diceroll}}
         {{#rollGreater() weapondiceroll 95}}
         <tr>
-            <th colspan="2"><img
-                    src="https://i.imgur.com/qsQttUE.png"
-                    class="sheet-rolltemplate-spacer sheet-invert"></th>
+            <th colspan="2"><img src="https://i.imgur.com/qsQttUE.png" class="sheet-rolltemplate-spacer sheet-invert">
+            </th>
         </tr>
         <tr class="sheet-failure">
             <td><span class="sheet-tcat" data-i18n="diceroll:">dice roll: </span></td>
@@ -582,9 +602,8 @@
         {{/rollGreater() weapondiceroll 95}}
         {{#rollLess() weapondiceroll 96}}
         <tr>
-            <th colspan="2"><img
-                    src="https://i.imgur.com/qsQttUE.png"
-                    class="sheet-rolltemplate-spacer sheet-invert"></th>
+            <th colspan="2"><img src="https://i.imgur.com/qsQttUE.png" class="sheet-rolltemplate-spacer sheet-invert">
+            </th>
         </tr>
         <tr>
             <td><span class="sheet-tcat" data-i18n="diceroll:">dice roll: </span></td>
