@@ -142,44 +142,43 @@
                     <!-- Right Column - Armor & some buttons -->
 
                     <div class="sheet-col">
+                        <div class="sheet-2colrow">
+                            <!-- Speed, Dodge, Parry -->
+                            <div class="sheet-col">
+                                <button name="roll_Speed" type="roll"
+                                    value="@{abilityroll} &{template:inq} {{rollname=^{rollsp}}} [[ (((@{attr_Sp})d6)>4) ]] {{roll=$[[1]]}} {{skill=@{Sp}}} {{diceroll=$[[0]]}}">
+                                    <label data-i18n="speedsp">Speed</label></button>
+                                <input name="attr_Sp" type="number" value="round(@{In} / 20)+1" disabled="true">
 
-                        <!-- Speed, Dodge, Parry -->
-                        <div class="sheet-row">
-                            <button name="roll_Speed" type="roll"
-                                value="@{abilityroll} &{template:inq} {{rollname=^{rollsp}}} [[ (((@{attr_Sp})d6)>4) ]] {{roll=$[[1]]}} {{skill=@{Sp}}} {{diceroll=$[[0]]}}">
-                                <label data-i18n="speedsp">Speed</label></button>
-                            <input name="attr_Sp" type="number" value="round(@{In} / 20)+1" disabled="true">
+                                <button name="roll_dodge" type="roll"
+                                    value="@{abilityroll} &{template:inq} {{rollname=^{rolld}}} [[ (?{Times this turn | first (*1),*1 | second (*0.5),*0.5 | third (*0.25),*0.25 | fourth (*0.13),*0.13} [[1d100]]+?{Modifier|0}) ]] {{roll=$[[1]]}} {{skill=@{Ws}}} {{target=[[@{Ws}+20 + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
+                                    <label data-i18n="dodgeD">Dodge!</label></button>
 
-                            <button name="roll_dodge" type="roll"
-                                value="@{abilityroll} &{template:inq} {{rollname=^{rolld}}} [[ (?{Times this turn | first (*1),*1 | second (*0.5),*0.5 | third (*0.25),*0.25 | fourth (*0.13),*0.13} [[1d100]]+?{Modifier|0}) ]] {{roll=$[[1]]}} {{skill=@{Ws}}} {{target=[[@{Ws}+20 + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
-                                <label data-i18n="dodgeD">Dodge!</label></button>
+                                <button name="roll_parry" type="roll"
+                                    value="@{abilityroll} &{template:inq} {{rollname=^{rollp}}} [[ (?{Times this turn | first (*1),*1 | second (*0.5),*0.5 | third (*0.25),*0.25 | fourth (*0.13),*0.13} [[1d100]]+?{Modifier|0}) ]] {{roll=$[[1]]}} {{skill=@{Ws}}} {{target=[[@{Ws} + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
+                                    <label data-i18n="parryP">Parry!</label></button>
+                            </div>
 
-                            <button name="roll_parry" type="roll"
-                                value="@{abilityroll} &{template:inq} {{rollname=^{rollp}}} [[ (?{Times this turn | first (*1),*1 | second (*0.5),*0.5 | third (*0.25),*0.25 | fourth (*0.13),*0.13} [[1d100]]+?{Modifier|0}) ]] {{roll=$[[1]]}} {{skill=@{Ws}}} {{target=[[@{Ws} + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
-                                <label data-i18n="parryP">Parry!</label></button>
+                            <!--Injury Buttons-->
+                            <div class="sheet-col">
+                                <label style="text-align: right;" data-i18n="biv">BIV:</label>
+                                <input style="text-align: right;" name="attr_biv" type="number" value="round(@{T} / 10)"
+                                    disabled="true">
+
+                                <button name="roll_systemshock" type="roll" value="@{abilityroll} &{template:inq} {{rollname=^{rollss}}} [[1d100]] {{roll=$[[1]]}} {{skill=@{T}}} {{target=[[@{T} + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
+                                    <label style="text-align: right;" data-i18n="systemshock">System Shock:</label>
+                                </button>
+                                
+                                <input style="text-align: right;" name="attr_systemshock" type="number" value="round(@{T} / 5)" disabled="true">
+
+                                <label style="text-align: right;" data-i18n="conc">Consciousness:</label>
+                                <input style="text-align: right;" name="attr_conc" type="number" value="round(@{T} / 2)" disabled="true">
+
+                                <label style="text-align: right;" data-i18n="damtot">Damage Total:</label>
+                                <input style="text-align: right;" name="attr_damtot" type="number" value="0">
+                            </div>
                         </div>
 
-                        <!--Injury Buttons-->
-                        <div class="sheet-row">
-                            <label style="text-align: right;" data-i18n="biv">BIV:</label>
-                            <input style="text-align: right;" name="attr_biv" type="number" value="round(@{T} / 10)"
-                                disabled="true">
-
-                            <button name="roll_systemshock" type="roll"
-                                value="@{abilityroll} &{template:inq} {{rollname=^{rollss}}} [[1d100]] {{roll=$[[1]]}} {{skill=@{T}}} {{target=[[@{T} + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
-                                <label style="text-align: right;" data-i18n="systemshock">System
-                                    Shock:</label></button>
-                            <input style="text-align: right;" name="attr_systemshock" type="number"
-                                value="round(@{T} / 5)" disabled="true">
-
-                            <label style="text-align: right;" data-i18n="conc">Consciousness:</label>
-                            <input style="text-align: right;" name="attr_conc" type="number" value="round(@{T} / 2)"
-                                disabled="true">
-
-                            <label style="text-align: right;" data-i18n="damtot">Damage Total:</label>
-                            <input style="text-align: right;" name="attr_damtot" type="number" value="0">
-                        </div>
-                        
                         <!--Armour-->
                         <h3 data-i18n="armor">Armour</h3>
                         <div class="sheet-quickborder">
