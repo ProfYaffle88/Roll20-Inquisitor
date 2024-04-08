@@ -361,16 +361,22 @@
 	text-align: center;
 }
 
+.sheet-armourblock-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
 .charsheet .sheet-wrapper .sheet-armourblock {
 	text-align: center;
-	margin    : auto auto 5px auto;
-	width     : calc(30% - 3px);
-	display   : inline-block;
+	margin: 0 auto 5px auto;
+	width: calc(30% - 3px);
+	display: inline-block;
 	justify-content: center;
 }
 
 .charsheet .sheet-wrapper .sheet-armourblock label {
-	text-align    : center;
+	text-align: center;
 	text-transform: uppercase;
 }
 
