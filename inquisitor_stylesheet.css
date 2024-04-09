@@ -56,7 +56,6 @@
 .charsheet .sheet-wrapper td {
 	margin        : 0;
 	padding       : 0;
-	border        : 0;
 	font-size     : 100%;
 	font          : inherit;
 	color         : #f0f0f0;
@@ -365,16 +364,20 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	border: 1px solid #ffffff;
+}
+
+.sheet-armourblock-container hr {
+	width: 100%;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 
 .charsheet .sheet-wrapper .sheet-armourblock {
-	text-align: center;
-	margin: 0 auto 5px auto;
-	width: calc(30% - 3px);
-	display: inline-block;
-	justify-content: center;
+    width: 30%;
+    margin: 5px auto;
+    text-align: center;
 }
-
 .charsheet .sheet-wrapper .sheet-armourblock label {
 	text-align: center;
 	text-transform: uppercase;
@@ -384,6 +387,9 @@
 	text-align: center;
 	font-size : 1.2em;
 }
+
+/* Specific rule to control the armourblock layout */
+
 
 /* Rows and Items */
 
