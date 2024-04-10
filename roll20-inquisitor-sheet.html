@@ -147,7 +147,7 @@
                             <div class="sheet-col">                                
                                 <label data-i18n="speedsp" style="width: 48%;">Speed</label>
                                 <input name="attr_Sp" type="number" value="round(@{In} / 20)+1" disabled="true" style="width: 48%;">
-                                <button name="roll_Speed" type="roll" value="@{abilityroll} &{template:inq} {{rollname=^{rollsp}}} [[([[@{Sp}]])d6>3cs]] {{roll=$[[0]]}} {{skill=@{Sp}}} {{diceroll=$[[1]]}}">
+                                <button name="roll_Speed" type="roll" value="@{abilityroll} &{template:inq} {{rollname=^{rollsp}}} [[([[@{Sp}]])d6>3cs]] {{roll=$[[0]]}} {{skill=@{Sp}}} {{speedroll=$[[1]]}}">
                                     <label>Roll Speed</label>
                                 </button>                        
                                 
@@ -593,6 +593,16 @@
             <td><span class="sheet-inlinerollresult">{{diceroll}}</span></td>
         </tr>
         {{/diceroll}}
+        {{#speedroll}}
+        <tr>
+            <th colspan="2"><img src="https://i.imgur.com/qsQttUE.png" class="sheet-rolltemplate-spacer sheet-invert">
+            </th>
+        </tr>
+        <tr>
+            <td><span class="sheet-tcat" data-i18n="speedroll:">Successful Actions: </span></td>
+            <td><span class="sheet-inlinerollresult">{{speedroll}}</span></td>
+        </tr>
+        {{/speedroll}}
         {{#rollGreater() weapondiceroll 95}}
         <tr>
             <th colspan="2"><img src="https://i.imgur.com/qsQttUE.png" class="sheet-rolltemplate-spacer sheet-invert">
