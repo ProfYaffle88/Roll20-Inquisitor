@@ -126,6 +126,8 @@
 	"rollnv": "Roll : Nerves",
 	"rollld": "Roll : Leadership",
 	"rollsp": "Roll : Speed",
+	"rolld": "Roll : Dodge",
+	"rollp": "Roll : Parry",
 	"rollss": "Roll: System Shock!",
 	"resultpsy:": "Psy Power Result:",
 	"threshold:": "Threshold:",

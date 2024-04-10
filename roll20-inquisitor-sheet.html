@@ -147,17 +147,18 @@
                             <div class="sheet-col">                                
                                 <label data-i18n="speedsp" style="width: 48%;">Speed</label>
                                 <input name="attr_Sp" type="number" value="round(@{In} / 20)+1" disabled="true" style="width: 48%;">
-                                <button name="roll_Speed" type="roll" value="@{abilityroll} &{template:inq} {{rollname=^{rollsp}}} [[([[@{Sp}]])d6>3cs]] {{roll=$[[0]]}} {{skill=@{Sp}}} {{speedroll=$[[1]]}}">
+                                <button name="roll_Speed" type="roll" 
+                                    value="@{abilityroll} &{template:inq} {{rollname=^{rollsp}}} [[([[@{Sp}]])d6>3cs]] {{roll=$[[0]]}} {{skill=@{Sp}}} {{speedroll=$[[1]]}}">
                                     <label>Roll Speed</label>
                                 </button>                        
                                 
                                 <button name="roll_dodge" type="roll"
-                                    value="@{abilityroll} &{template:inq} {{rollname=^{rolld}}} [[ (?{Times this turn | first (*1),*1 | second (*0.5),*0.5 | third (*0.25),*0.25 | fourth (*0.13),*0.13} [[1d100]]+?{Modifier|0}) ]] {{roll=$[[1]]}} {{skill=@{Ws}}} {{target=[[@{Ws}+20 + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
+                                    value="@{abilityroll} &{template:inq} {{rollname=^{rolld}}} [[([[1d100]]+?{Modifier|0})]] {{roll=$[[1]]}} {{skill=@{Ws}}} {{target=[[(@{Ws}+20) * ?{Times this turn | first (1),1 | second (0.5),0.5 | third (0.25),0.25 | fourth (0.13),0.13}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
                                     <label data-i18n="dodgeD">Dodge</label>
                                 </button>
 
                                 <button name="roll_parry" type="roll"
-                                    value="@{abilityroll} &{template:inq} {{rollname=^{rollp}}} [[ (?{Times this turn | first (*1),*1 | second (*0.5),*0.5 | third (*0.25),*0.25 | fourth (*0.13),*0.13} [[1d100]]+?{Modifier|0}) ]] {{roll=$[[1]]}} {{skill=@{Ws}}} {{target=[[@{Ws} + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
+                                    value="@{abilityroll} &{template:inq} {{rollname=^{rollp}}} [[ (?{Times this turn | first (*1),*1 | second (*0.5),*0.5 | third (*0.25),*0.25 | fourth (*0.13),*0.13} ]] {{roll=$[[1]]}} {{skill=@{Ws}}} {{target=[[@{Ws} + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
                                     <label data-i18n="parryP">Parry</label>
                                 </button>
                             </div>
