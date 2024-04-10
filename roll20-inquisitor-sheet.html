@@ -1,13 +1,13 @@
 <!-- Logo Header -->
 <div class="sheet-wrapper">
-    <div class="sheet-1colrow sheet-col" style="margin-bottom:-30px; padding-right:5%; width:60%;">
+    <div class="sheet-row">
+        <img class="sheet-logo" src="https://i.imgur.com/VtFm6jw.png">
         <h1>INQUISITOR</h1>
-        <img src="https://i.imgur.com/SS6DfPd.png" style="max-height: 100px; float:right">
     </div>
 
     <!-- Tab set up-->
     <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="core" />
-    <div>
+    <div class="tab-nav">
         <button class="tab-btn" type="action" name="act_core">Core</button>
         <button class="tab-btn" type="action" name="act_talents">Talents</button>
         <button class="tab-btn" type="action" name="act_gear">Gear</button>
@@ -23,7 +23,7 @@
 
     <!--Core Tab-->
     <div class="sheet-character">
-        <h2>Character</h2>
+        <h2>Character Information</h2>
         <span>
             <div class="sheet-wrapper">
 
@@ -31,21 +31,16 @@
                 <div class="sheet-1colrow sheet-col sheet-quickborder">
 
                     <div class="sheet-row">
-                        <div class="sheet-item" style="width:14%"><label data-i18n="charactername">Character
-                                Name</label></div>
-                        <div class="sheet-item" style="width:35%"><input name="attr_character_name" type="text">
-                        </div>
-                        <div class="sheet-item" style="width:14%"><label data-i18n="playername">Player Name</label>
-                        </div>
+                        <div class="sheet-item" style="width:14%"><label data-i18n="charactername">Character Name</label></div>
+                        <div class="sheet-item" style="width:35%"><input name="attr_character_name" type="text"></div>
+                        <div class="sheet-item" style="width:14%"><label data-i18n="playername">Player Name</label></div>
                         <div class="sheet-item" style="width:37%"><input name="attr_Player" type="text"></div>
                     </div>
 
                     <div class="sheet-row">
-                        <div class="sheet-item" style="width:12%"><label data-i18n="homeworld">Home World</label>
-                        </div>
+                        <div class="sheet-item" style="width:12%"><label data-i18n="homeworld">Home World</label></div>
                         <div class="sheet-item" style="width:20%"><input name="attr_Homeworld" type="text"></div>
-                        <div class="sheet-item" style="width:12%"><label data-i18n="careerpath">Career Path</label>
-                        </div>
+                        <div class="sheet-item" style="width:12%"><label data-i18n="careerpath">Career Path</label></div>
                         <div class="sheet-item" style="width:20%"><input name="attr_Career" type="text"></div>
                         <div class="sheet-item" style="width:7%"><label data-i18n="rank">Rank</label></div>
                         <div class="sheet-item" style="width:29%"><input name="attr_Rank" type="text"></div>
@@ -67,17 +62,13 @@
                     </div>
 
                     <div class="sheet-row">
-                        <div class="sheet-item" style="width:11%"><label data-i18n="skincolor">Skin Colour</label>
-                        </div>
+                        <div class="sheet-item" style="width:11%"><label data-i18n="skincolor">Skin Colour</label></div>
                         <div class="sheet-item" style="width:12%"><input name="attr_Skin" type="text"></div>
-                        <div class="sheet-item" style="width:11%"><label data-i18n="haircolor">Hair Colour</label>
-                        </div>
+                        <div class="sheet-item" style="width:11%"><label data-i18n="haircolor">Hair Colour</label></div>
                         <div class="sheet-item" style="width:12%"><input name="attr_Hair" type="text"></div>
-                        <div class="sheet-item" style="width:11%"><label data-i18n="eyecolor">Eye Colour</label>
-                        </div>
+                        <div class="sheet-item" style="width:11%"><label data-i18n="eyecolor">Eye Colour</label></div>
                         <div class="sheet-item" style="width:12%"><input name="attr_Eyes" type="text"></div>
-                        <div class="sheet-item" style="width:12%"><label data-i18n="handedness">Handedness</label>
-                        </div>
+                        <div class="sheet-item" style="width:12%"><label data-i18n="handedness">Handedness</label></div>
                         <div class="sheet-item" style="width:19%"><input name="attr_Handedness" type="text"></div>
                     </div>
 
@@ -529,7 +520,7 @@
             <th colspan="2" class="sheet-title">{{rollname}}</th>
         </tr>
         <tr>
-            <th colspan="2"><img src="https://i.imgur.com/qsQttUE.png" class="sheet-rolltemplate-spacer"></th>
+            <th colspan="2"><img src="https://i.imgur.com/Bd6Obht.png" class="sheet-rolltemplate-spacer"></th>
         </tr>
         {{#aim}}
         <tr>
@@ -584,7 +575,7 @@
         {{/threshold}}
         {{#diceroll}}
         <tr>
-            <th colspan="2"><img src="https://i.imgur.com/qsQttUE.png" class="sheet-rolltemplate-spacer sheet-invert">
+            <th colspan="2"><img src="https://i.imgur.com/Bd6Obht.png" class="sheet-rolltemplate-spacer sheet-invert">
             </th>
         </tr>
         <tr>
@@ -594,7 +585,7 @@
         {{/diceroll}}
         {{#speedroll}}
         <tr>
-            <th colspan="2"><img src="https://i.imgur.com/qsQttUE.png" class="sheet-rolltemplate-spacer sheet-invert">
+            <th colspan="2"><img src="https://i.imgur.com/Bd6Obht.png" class="sheet-rolltemplate-spacer sheet-invert">
             </th>
         </tr>
         <tr>
@@ -604,7 +595,7 @@
         {{/speedroll}}
         {{#rollGreater() weapondiceroll 95}}
         <tr>
-            <th colspan="2"><img src="https://i.imgur.com/qsQttUE.png" class="sheet-rolltemplate-spacer sheet-invert">
+            <th colspan="2"><img src="https://i.imgur.com/Bd6Obht.png" class="sheet-rolltemplate-spacer sheet-invert">
             </th>
         </tr>
         <tr class="sheet-failure">
@@ -614,7 +605,7 @@
         {{/rollGreater() weapondiceroll 95}}
         {{#rollLess() weapondiceroll 96}}
         <tr>
-            <th colspan="2"><img src="https://i.imgur.com/qsQttUE.png" class="sheet-rolltemplate-spacer sheet-invert">
+            <th colspan="2"><img src="https://i.imgur.com/Bd6Obht.png" class="sheet-rolltemplate-spacer sheet-invert">
             </th>
         </tr>
         <tr>
