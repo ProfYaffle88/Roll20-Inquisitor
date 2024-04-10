@@ -28,7 +28,7 @@
             <div class="sheet-wrapper">
 
                 <!-- Base Character Information -->
-                <div class="sheet-1colrow sheet-col sheet-quickborder">
+                <div class="basic-info-box sheet-1colrow sheet-col sheet-quickborder">
 
                     <div class="sheet-row">
                         <div class="sheet-item" style="width:14%"><label data-i18n="charactername">Character Name</label></div>
@@ -135,7 +135,7 @@
                     <div class="sheet-col">
                         <div class="sheet-2colrow">
                             <!-- Speed, Dodge, Parry -->
-                            <div class="sheet-col">                                
+                            <div class="sheet-col sheet-quickborder">                                
                                 <label data-i18n="speedsp" style="width: 48%;">Speed</label>
                                 <input name="attr_Sp" type="number" value="round(@{In} / 20)+1" disabled="true" style="width: 48%;">
                                 <button name="roll_Speed" type="roll" style="width: 75%;"
@@ -155,7 +155,7 @@
                             </div>
 
                             <!--Injury Buttons-->
-                            <div class="sheet-col">
+                            <div class="sheet-col sheet-quickborder">
                                 <label data-i18n="biv" style="width: 48%;">BIV:</label>
                                 <input name="attr_biv" type="number" value="round(@{T} / 10)" style="width: 48%;" disabled="true">
 

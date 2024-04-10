@@ -335,8 +335,8 @@
 
 .charsheet .sheet-wrapper .sheet-2colrow .sheet-col {
 	width: calc(50% - 3px) !important;
-	float: left;
-	margin-right: 2px !important;
+	margin-right: auto !important;
+	margin-left: auto !important;
 }
 
 .charsheet .sheet-wrapper .sheet-2colrow .sheet-col:last-child {
@@ -392,7 +392,7 @@
 }
 
 .charsheet .sheet-wrapper .sheet-quickborder {
-	border: 1px solid #ffffff;
+	border: 1px solid darkgrey;
 	padding: 3px;
 	margin-bottom: 5px;
 }
@@ -405,11 +405,17 @@
 	text-align: center;
 }
 
+.basic-info-box {
+	margin-bottom: 10px !important;
+}
+
 .sheet-armourblock-container {
 	display: flex;
+	width: 88%;
+	margin-left: auto !important;
+	margin-right: auto !important;
 	flex-wrap: wrap;
-	justify-content: space-evenly;
-	border: 1px solid #ffffff;
+	border: 1px solid darkgrey;
 }
 
 .sheet-armourblock-container hr {
@@ -583,7 +589,7 @@
 
 .charsheet .sheet-wrapper .sheet-characteristics input {
 	display: block;
-	border: 1px solid gray;
+	border: 1px solid grey;
 	background-color: transparent;
 	width: 55%;
 	height: 40px;
