@@ -158,7 +158,7 @@
                                 </button>
 
                                 <button name="roll_parry" type="roll"
-                                    value="@{abilityroll} &{template:inq} {{rollname=^{rollp}}} [[([[1d100]]+?{Modifier|0})]] {{roll=$[[1]]}} {{skill=@{Ws}}} {{target=[[(@{Ws} + ?{Parry penalty|0} + ?{Reach difference? | none (0),0 | +1 (10),10 | +2 (20),20 | +3 (30),30 | +4 (40),40 | -1 (-10),-10 | -2 (-20),-20 | -3 (-30),-30 | -4 (-40),-40} + ?{High Ground? | no (0),0 | yes (10),10} + ?{Prone! | no (0),0 | yes (-20),20} ) * ?{Times this turn | first (1),1 | second (0.5),0.5 | third (0.25),0.25 | fourth (0.13),0.13}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
+                                    value="@{abilityroll} &{template:inq} {{rollname=^{rollp}}} [[([[1d100]]+?{Modifier|0})]] {{roll=$[[1]]}} {{skill=@{Ws}}} {{target=[[(@{Ws} + ?{Parry penalty|0} + ?{Reach difference? | none (0),0 | +1 (10),10 | +2 (20),20 | +3 (30),30 | +4 (40),40 | -1 (-10),-10 | -2 (-20),-20 | -3 (-30),-30 | -4 (-40),-40} + ?{High Ground? | no (0),0 | yes (10),10} + ?{Prone! | no (0),0 | yes (-20),20} + ?{Facing? | head on (0),0 | from side (-20),-20 | from behind (-40),-40} + ?{Using off hand? | no (0),0 | yes (-20),20} + ?{Using two weapons? | no (0),0 | yes (20),20}) * ?{Times this turn | first (1),1 | second (0.5),0.5 | third (0.25),0.25 | fourth (0.13),0.13}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
                                     <label data-i18n="parryP">Parry</label>
                                 </button>
                             </div>
