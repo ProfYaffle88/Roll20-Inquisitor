@@ -147,17 +147,17 @@
                             <div class="sheet-col">                                
                                 <label data-i18n="speedsp" style="width: 48%;">Speed</label>
                                 <input name="attr_Sp" type="number" value="round(@{In} / 20)+1" disabled="true" style="width: 48%;">
-                                <button name="roll_Speed" type="roll" 
+                                <button name="roll_Speed" type="roll" style="width: 75%;"
                                     value="@{abilityroll} &{template:inq} {{rollname=^{rollsp}}} [[([[@{Sp}]])d6>3cs]] {{roll=$[[0]]}} {{skill=@{Sp}}} {{speedroll=$[[1]]}}">
                                     <label>Roll Speed</label>
                                 </button>                        
                                 
-                                <button name="roll_dodge" type="roll"
+                                <button name="roll_dodge" type="roll" style="width: 75%;"
                                     value="@{abilityroll} &{template:inq} {{rollname=^{rolld}}} [[([[1d100]]+?{Modifier|0})]] {{roll=$[[1]]}} {{skill=@{Ws}}} {{target=[[(@{Ws} + 20 + ?{Reach difference? | none (0),0 | +1 (10),10 | +2 (20),20 | +3 (30),30 | +4 (40),40 | -1 (-10),-10 | -2 (-20),-20 | -3 (-30),-30 | -4 (-40),-40} + ?{High Ground? | no (0),0 | yes (10),10} + ?{Prone! | no (0),0 | yes (-20),20} + ?{Facing? | head on (0),0 | from side (-20),-20 | from behind (-40),-40}) * ?{Times this turn | first (1),1 | second (0.5),0.5 | third (0.25),0.25 | fourth (0.13),0.13}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
                                     <label data-i18n="dodgeD">Dodge</label>
                                 </button>
 
-                                <button name="roll_parry" type="roll"
+                                <button name="roll_parry" type="roll" style="width: 75%;"
                                     value="@{abilityroll} &{template:inq} {{rollname=^{rollp}}} [[([[1d100]]+?{Modifier|0})]] {{roll=$[[1]]}} {{skill=@{Ws}}} {{target=[[(@{Ws} + ?{Parry penalty|0} + ?{Reach difference? | none (0),0 | +1 (10),10 | +2 (20),20 | +3 (30),30 | +4 (40),40 | -1 (-10),-10 | -2 (-20),-20 | -3 (-30),-30 | -4 (-40),-40} + ?{High Ground? | no (0),0 | yes (10),10} + ?{Prone! | no (0),0 | yes (-20),20} + ?{Facing? | head on (0),0 | from side (-20),-20 | from behind (-40),-40} + ?{Using off hand? | no (0),0 | yes (-20),20} + ?{Using two weapons? | no (0),0 | yes (20),20}) * ?{Times this turn | first (1),1 | second (0.5),0.5 | third (0.25),0.25 | fourth (0.13),0.13}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
                                     <label data-i18n="parryP">Parry</label>
                                 </button>
@@ -165,21 +165,20 @@
 
                             <!--Injury Buttons-->
                             <div class="sheet-col">
-                                <label style="text-align: right;" data-i18n="biv">BIV:</label>
-                                <input style="text-align: right;" name="attr_biv" type="number" value="round(@{T} / 10)"
-                                    disabled="true">
+                                <label data-i18n="biv" style="width: 48%;">BIV:</label>
+                                <input name="attr_biv" type="number" value="round(@{T} / 10)" style="width: 48%;" disabled="true">
 
-                                <button name="roll_systemshock" type="roll" value="@{abilityroll} &{template:inq} {{rollname=^{rollss}}} [[1d100]] {{roll=$[[1]]}} {{skill=@{T}}} {{target=[[@{T} + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
-                                    <label style="text-align: right;" data-i18n="systemshock">System Shock:</label>
+                                <button name="roll_systemshock" type="roll" style="width: 48%;" value="@{abilityroll} &{template:inq} {{rollname=^{rollss}}} [[([[1d100]])]] {{roll=$[[1]]}} {{skill=@{T}}} {{target=[[@{T} + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
+                                    <label data-i18n="systemshock">System Shock : </label>
                                 </button>
                                 
-                                <input style="text-align: right;" name="attr_systemshock" type="number" value="round(@{T} / 5)" disabled="true">
+                                <input name="attr_systemshock" type="number" value="round(@{T} / 5)" style="width: 48%;" disabled="true">
 
-                                <label style="text-align: right;" data-i18n="conc">Consciousness:</label>
-                                <input style="text-align: right;" name="attr_conc" type="number" value="round(@{T} / 2)" disabled="true">
+                                <label data-i18n="conc" style="width: 48%;">Consciousness : </label>
+                                <input name="attr_conc" type="number" style="width: 48%;" value="round(@{T} / 2)" disabled="true">
 
-                                <label style="text-align: right;" data-i18n="damtot">Damage Total:</label>
-                                <input style="text-align: right;" name="attr_damtot" type="number" value="0">
+                                <label data-i18n="damtot" style="width: 48%;">Damage Total : </label>
+                                <input name="attr_damtot" type="number" style="width: 48%;" value="0">
                             </div>
                         </div>
 
