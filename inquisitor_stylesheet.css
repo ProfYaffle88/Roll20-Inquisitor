@@ -651,6 +651,10 @@
 	text-transform: capitalize;
 }
 
+.sheet-rolltemplate-inq span {
+	color: #fff;
+}
+
 .sheet-rolltemplate-inq tr {
 	height: 20px;
 }
