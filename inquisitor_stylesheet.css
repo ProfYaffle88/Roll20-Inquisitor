@@ -115,9 +115,16 @@
 	-webkit-box-sizing : border-box;
 }
 
+.tab-btn {
+	color: #fff;
+	background-color: #3FB315;
+	border-color: #fff;
+}
+
 .charsheet .sheet-wrapper button[type="roll"]:hover,
 .charsheet .sheet-wrapper .sheet-btn:hover,
-.charsheet .sheet-wrapper .sheet-hider input[type=checkbox]:checked~.sheet-btn {
+.charsheet .sheet-wrapper .sheet-hider input[type=checkbox]:checked~.sheet-btn,
+.tab-btn:hover {
 	background-color: #00db07;
 	border-color    : #00db07;
 }
