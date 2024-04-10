@@ -178,57 +178,56 @@
                                 <input name="attr_conc" type="number" style="width: 48%;" value="round(@{T} / 2)" disabled="true">
 
                                 <label data-i18n="damtot" style="width: 48%;">Damage Total : </label>
-                                <input name="attr_damtot" type="number" style="width: 48%;" value="0">
+                                <input name="attr_damtot" type="number" style="width: 48%; color: red" value="@{Headdamage}+@{Chestdamage}+@{RightArmdamage}+@{LeftArmdamage}+@{Abdodamage}+@{Groindamage}+@{RightLegdamage}+@{LeftLegdamage}" disabled="true">
                             </div>
                         </div>
 
                         <!--Armour-->
-                        <h3 data-i18n="armor">Armour</h3>
+                        <h3 data-i18n="armor">Armour & Damage</h3>
                         <div class="sheet-armourblock-container">
                             <div class="sheet-quickborder sheet-armourblock">
                                 <label data-i18n="head">Head</label> <input name="attr_Headarmourvalue" type="number">
-                                <label>Ablative</label> <input name="attr_Headabarmourtype" type="text">
+                                <label>Ablative</label> <input name="attr_Headababarmourvalue" type="number">
+                                <label>Damage</label> <input name="attr_Headdamage" type="number" style="color: red;">
                             </div>
                             <hr>
                             <div class="sheet-quickborder sheet-armourblock">
-                                <label data-i18n="leftarm">Left Arm</label> <input
-                                    name="attr_LeftArmarmourvalue" type="number">
-                                <label>Ablative</label> <input name="attr_LeftArmabarmourtype" type="text">
+                                <label data-i18n="leftarm">Left Arm</label> <input name="attr_LeftArmarmourvalue" type="number">
+                                <label>Ablative</label> <input name="attr_LeftArmababarmourvalue" type="number">
+                                <label>Damage</label> <input name="attr_LeftArmdamage" type="number" style="color: red;">
                             </div>
                             <div class="sheet-quickborder sheet-armourblock">
-                                <label data-i18n="chest">Chest</label> <input name="attr_Chestarmourvalue"
-                                    type="number">
-                                <label>Ablative</label> <input name="attr_Chestabarmourtype" type="text">
+                                <label data-i18n="chest">Chest</label> <input name="attr_Chestarmourvalue" type="number">
+                                <label>Ablative</label> <input name="attr_Chestababarmourvalue" type="number">
+                                <label>Damage</label> <input name="attr_Chestdamage" type="number" style="color: red;">
                             </div>
                             <div class="sheet-quickborder sheet-armourblock">
-                                <label data-i18n="rightarm">Right Arm</label> <input
-                                    name="attr_RightArmarmourvalue" type="number">
-                                <label>Ablative</label> <input name="attr_RightArmabarmourtype" type="text">
+                                <label data-i18n="rightarm">Right Arm</label> <input name="attr_RightArmarmourvalue" type="number">
+                                <label>Ablative</label> <input name="attr_RightArmababarmourvalue" type="number">
+                                <label>Damage</label> <input name="attr_RightArmdamage" type="number" style="color: red;">
                             </div>
                             <hr>
                             <div class="sheet-quickborder sheet-armourblock">
-                                <label data-i18n="abdomen">Abdomen</label> <input name="attr_Abdoarmourvalue"
-                                    type="number">
-                                <label>Ablative</label> <input name="attr_Abdoabarmourtype" type="text">
+                                <label data-i18n="abdomen">Abdomen</label> <input name="attr_Abdoarmourvalue" type="number">
+                                <label>Ablative</label> <input name="attr_Abdoabarmourvalue" type="number">
+                                <label>Damage</label> <input name="attr_Abdodamage" type="number" style="color: red;">
                             </div>
                             <hr>
                             <div class="sheet-quickborder sheet-armourblock">
-                                <label data-i18n="groin">Groin</label> <input name="attr_Groinarmourvalue"
-                                    type="number">
-                                <label>Ablative</label> <input name="attr_Groinabarmourtype" type="text">
+                                <label data-i18n="groin">Groin</label> <input name="attr_Groinarmourvalue" type="number">
+                                <label>Ablative</label> <input name="attr_Groinarmourvalue" type="number">
+                                <label>Damage</label> <input name="attr_Groindamage" type="number" style="color: red;">
                             </div>
                             <hr>
-                            <div class="sheet-quickborder sheet-armourblock"
-                                style="margin: 20px auto auto 11%;">
-                                <label data-i18n="leftleg">Left Leg</label> <input
-                                    name="attr_LeftLegarmourvalue" type="number">
-                                <label>Ablative</label> <input name="attr_LeftabLegarmourtype" type="text">
+                            <div class="sheet-quickborder sheet-armourblock">
+                                <label data-i18n="leftleg">Left Leg</label> <input name="attr_LeftLegarmourvalue" type="number">
+                                <label>Ablative</label> <input name="attr_LeftLegabarmourvalue" type="number">
+                                <label>Damage</label> <input name="attr_LeftLegdamage" type="number" style="color: red;">
                             </div>
-                            <div class="sheet-quickborder sheet-armourblock"
-                                style="margin: 20px auto auto 11%;">
-                                <label data-i18n="rightleg">Right Leg</label> <input
-                                    name="attr_RightLegarmourvalue" type="number">
-                                <label>Ablative</label> <input name="attr_RightLegaarmourtype" type="text">
+                            <div class="sheet-quickborder sheet-armourblock">
+                                <label data-i18n="rightleg">Right Leg</label> <input name="attr_RightLegarmourvalue" type="number">
+                                <label>Ablative</label> <input name="attr_RightLegabarmourvalue" type="number">
+                                <label>Damage</label> <input name="attr_RightLegdamage" type="number" style="color: red;">
                             </div>
                         </div>
 
