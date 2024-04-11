@@ -1,6 +1,6 @@
 # Roll20 Custom Character Sheet for Inquisitor 40k
 
-<img src="assets\inq-logo-rect.png" style="max-height: 150px; margin-left: 40%;">
+<img src="assets\inq-logo-rect.png" style="margin-left: 40%;" width="150px">
 
 ## The Goal
 
