@@ -176,7 +176,7 @@
 }
 
 .charsheet .sheet-wrapper h1 {
-	color: rgb(18, 255, 18);
+	color: rgb(146, 255, 146);
 	width: 80%;
 	padding: 20px;
 	margin-bottom: 5px;
@@ -188,7 +188,7 @@
 }
 
 .charsheet .sheet-wrapper h2 {
-	color: rgb(18, 255, 18);
+	color: rgb(146, 255, 146);
 	padding: 3px;
 	margin-bottom: 5px;
 	font-size: 18px;
@@ -199,7 +199,7 @@
 }
 
 .charsheet .sheet-wrapper h3 {
-	color: rgb(18, 255, 18);
+	color: rgb(146, 255, 146);
 	padding: 3px;
 	margin-bottom: 5px;
 	font-size: 18px;
@@ -220,7 +220,7 @@
 	line-height: 16px;
 	font-weight: normal;
 	margin: 0;
-	color: rgb(18, 255, 18);
+	color: rgb(146, 255, 146);
 	background-color: rgb(0, 0, 0);
 	vertical-align: middle;
 	cursor: auto;
@@ -255,7 +255,7 @@
 	line-height: 16px;
 	font-weight: normal;
 	margin: 0;
-	color: rgb(18, 255, 18);
+	color: rgb(146, 255, 146);
 	background-color: transparent;
 	vertical-align: middle;
 	cursor: auto;
@@ -281,7 +281,7 @@
 .charsheet .sheet-wrapper input[type="checkbox"] {
 	height: 13px;
 	width: 13px;
-	color: rgb(18, 255, 18);
+	color: rgb(146, 255, 146);
 	border: 1px solid #ffffff;
 
 	border-radius: 0;
@@ -409,6 +409,8 @@
 	margin-bottom: 10px !important;
 }
 
+/* Armourblock rules */
+
 .sheet-armourblock-container {
 	display: flex;
 	width: 88%;
@@ -440,6 +442,10 @@
 .charsheet .sheet-wrapper .sheet-armourblock input {
 	text-align: center;
 	font-size: 1.2em;
+}
+
+#location-damage, #damage-total {
+	color: #dd1b1b;
 }
 
 /* Rows and Items */
@@ -633,6 +639,8 @@
 	width: 39%;
 	float: right;
 }
+
+/* Rolltemplate rules - The bit that appears in chat when you roll dice! */
 
 .sheet-rolltemplate-customtest table {
 	width: 100%;
