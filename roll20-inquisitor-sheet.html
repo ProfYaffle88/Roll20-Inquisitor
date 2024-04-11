@@ -226,125 +226,123 @@
                         <div class="sheet-row">
                             <h3 data-i18n="rangedweapons">Ranged Weapons</h3>
                             <fieldset class="repeating_rangedweapons">
+                                <div class="sheet-quickborder">
 
-                                        <div class="sheet-quickborder">
+                                    <div class="sheet-row">
+                                        <div class="sheet-item" style="width:12%">
+                                            <label data-i18n="name:">Name:</label>
+                                        </div>
+                                        <div class="sheet-item" style="width:37%">
+                                            <input name="attr_rangedweaponname" type="text">
+                                        </div>
+                                        <div class="sheet-item" style="width:9%">
+                                            <label data-i18n="type">Type:</label>
+                                            <select id="type">
+                                                <option value="melee">Melee</option>
+                                                <option value="pistol">Pistol</option>
+                                                <option value="rifle">Rifle</option>
+                                                <option value="heavy">Heavy</option>
+                                            </select>
+                                        </div>
+                                        <div class="sheet-item" style="width:9%">
+                                            <label data-i18n="rangeType">Range:</label>
+                                            <select id="rangeType">
+                                                <option value="A">A</option>
+                                                <option value="B">B</option>
+                                                <option value="C">C</option>
+                                                <option value="D">D</option>
+                                                <option value="E">E</option>
+                                                <option value="F">F</option>
+                                                <option value="G">G</option>
+                                                <option value="H">H</option>
+                                                <option value="I">I</option>
+                                                <option value="J">J</option>
+                                            </select>
+                                        </div>
 
-                                            <div class="sheet-row">
-                                                <div class="sheet-item" style="width:12%">
-                                                    <label data-i18n="name:">Name:</label>
-                                                </div>
-                                                <div class="sheet-item" style="width:37%">
-                                                    <input name="attr_rangedweaponname" type="text">
-                                                </div>
-                                                <div class="sheet-item" style="width:9%">
-                                                    <label data-i18n="type">Type:</label>
-                                                    <select id="type">
-                                                        <option value="melee">Melee</option>
-                                                        <option value="pistol">Pistol</option>
-                                                        <option value="rifle">Rifle</option>
-                                                        <option value="heavy">Heavy</option>
-                                                    </select>
-                                                </div>
-                                                <div class="sheet-item" style="width:9%">
-                                                    <label data-i18n="rangeType">Range:</label>
-                                                    <select id="rangeType">
-                                                        <option value="A">A</option>
-                                                        <option value="B">B</option>
-                                                        <option value="C">C</option>
-                                                        <option value="D">D</option>
-                                                        <option value="E">E</option>
-                                                        <option value="F">F</option>
-                                                        <option value="G">G</option>
-                                                        <option value="H">H</option>
-                                                        <option value="I">I</option>
-                                                        <option value="J">J</option>
-                                                    </select>
-                                                </div>
+                                        <!-- <div class="sheet-rangehide" data-i18n="range_description:"></div> -->
+                                        <div class="sheet-item" style="width: 9%; float: right;">
+                                            <button name="roll_rangedhit" type="roll"
+                                                value="@{abilityroll} &{template:inq} {{rollname=@{rangedweaponname} ^{tohit}}} [[(@{BS} ?{Aim | No aim (+0),+0 | One aim (+20),+20 | Two aim (+40),+40 | Three aim (+60),+60} ?{Range | 1-5 Yards | 6-10 Yards | 11-15 Yards | 16-20 Yards | 21-25 Yards | 26-30 Yards | 31-35 Yards | 36-40 Yards | 41-45 Yards | 46-50 Yards | 51-55 Yards | 56-60 Yards | 61-65 Yards | 66-70 Yards | 71-75 Yards} ?{Off hand | No (+0),+0 | Yes (-20),-20} ?{Rested Weapon | No (+0),+0 | Yes (+10),+10} ?{Target movement | Stationary (+0),+0 | Ran (-8),-8 | Sprinted (-12),-12 | Evaded (-20),-20} ?{Shots per Action | Standard/Single fire (+0),+0 | Semi auto: two shots (+20),+20 | Semi auto: three shots (+30),+30 | Semi auto: four shots (+40),+40 | Semi auto: five shots (+50),+50 | Semi auto: six shots (+60),+60} + ?{Modifier|0}+[[1d100]])]] {{weapondiceroll=$[[0]]}} {{roll=$[[1]]}} {{skill=@{BS}}} {{target=@{BS} ?{Aim | } ?{Range | } ?{Off hand | } ?{Rested Weapon | } ?{Target movement | } ?{Shots per Action | } + ?{Modifier|0}]]}} {{aim=?{Aim | }}} {{offhand=?{Off hand | }}} {{restedweapon=?{Rested Weapon | }}} {{targetmove=?{Target movement | }}} {{attacktype=?{Shots per Action | }}} {{modifier=?{Modifier|0}}}">
+                                                <label data-i18n="hit">Hit</label>
+                                            </button>
+                                        </div>
+                                    </div>
 
-                                                <div class="sheet-rangehide" data-i18n="range_description:"></div>
-                                                <div class="sheet-item" style="width: 9%; float: right;">
-                                                    <button name="roll_rangedhit" type="roll"
-                                                        value="@{abilityroll} &{template:inq} {{rollname=@{rangedweaponname} ^{tohit}}} [[(@{BS} ?{Aim | No aim (+0),+0 | One aim (+20),+20 | Two aim (+40),+40 | Three aim (+60),+60} ?{Range | 1-5 Yards | 6-10 Yards | 11-15 Yards | 16-20 Yards | 21-25 Yards | 26-30 Yards | 31-35 Yards | 36-40 Yards | 41-45 Yards | 46-50 Yards | 51-55 Yards | 56-60 Yards | 61-65 Yards | 66-70 Yards | 71-75 Yards} ?{Off hand | No (+0),+0 | Yes (-20),-20} ?{Rested Weapon | No (+0),+0 | Yes (+10),+10} ?{Target movement | Stationary (+0),+0 | Ran (-8),-8 | Sprinted (-12),-12 | Evaded (-20),-20} ?{Shots per Action | Standard/Single fire (+0),+0 | Semi auto: two shots (+20),+20 | Semi auto: three shots (+30),+30 | Semi auto: four shots (+40),+40 | Semi auto: five shots (+50),+50 | Semi auto: six shots (+60),+60} + ?{Modifier|0}+[[1d100]])]] {{weapondiceroll=$[[0]]}} {{roll=$[[1]]}} {{skill=@{BS}}} {{target=@{BS} ?{Aim | } ?{Range | } ?{Off hand | } ?{Rested Weapon | } ?{Target movement | } ?{Shots per Action | } + ?{Modifier|0}]]}} {{aim=?{Aim | }}} {{offhand=?{Off hand | }}} {{restedweapon=?{Rested Weapon | }}} {{targetmove=?{Target movement | }}} {{attacktype=?{Shots per Action | }}} {{modifier=?{Modifier|0}}}">
-                                                        <label data-i18n="hit">Hit</label>
-                                                    </button>
+                                    <div class="sheet-row">
+                                        <div class="sheet-item" style="width:15%">
+                                            <label data-i18n="damage:">Damage:</label>
+                                        </div>
+                                        <div class="sheet-item" style="width:19%">
+                                            <input name="attr_rangedweapondamage" type="text">
+                                        </div>
+                                        <div class="sheet-item" style="width:10%">
+                                            <label data-i18n="damagetype:">Damage Type:</label>
+                                        </div>
+                                        <div class="sheet-item" name="attr_damagetype" style="width:15%">
+                                            <select id="damagetype:">
+                                                <option value="kinetic">Kinetic</option>
+                                                <option value="laser">Laser</option>
+                                                <option value="plasma">Plasma</option>
+                                                <option value="melta">Melta</option>
+                                                <option value="special">Special</option>
+                                            </select>
+                                        </div>
 
-                                                </div>
-                                            </div>
+                                        <div class="sheet-item" style="width: 16%; float: right;">
+                                            <button name="roll_rangeddamage" type="roll"
+                                                value="@{abilityroll} &{template:inq} {{rollname=@{rangedweaponname} ^{damage}}} {{damage=[[@{rangedweapondamage}]]}} {{damagetype=@{damageType}}} {{special=@{rangedweaponspecial}}}">
+                                                <label data-i18n="damage">Damage</label>
+                                            </button>
+                                        </div>
+                                    </div>
 
-                                            <div class="sheet-row">
-                                                <div class="sheet-item" style="width:15%">
-                                                    <label data-i18n="damage:">Damage:</label>
-                                                </div>
-                                                <div class="sheet-item" style="width:19%">
-                                                    <input name="attr_rangedweapondamage" type="text">
-                                                </div>
-                                                <div class="sheet-item" style="width:10%">
-                                                    <label data-i18n="damagetype:">Damage Type:</label>
-                                                </div>
-                                                <div class="sheet-item" name="attr_damagetype" style="width:15%">
-                                                    <select id="damagetype:">
-                                                        <option value="kinetic">Kinetic</option>
-                                                        <option value="laser">Laser</option>
-                                                        <option value="plasma">Plasma</option>
-                                                        <option value="melta">Melta</option>
-                                                        <option value="special">Special</option>
-                                                    </select>
-                                                </div>
+                                    <div class="sheet-row">
+                                        <div class="sheet-item" style="width:15%">
+                                            <label data-i18n="fmode">F Mode:</label>
+                                        </div>
+                                        <div class="sheet-item" style=width:10%>
+                                            <input name="attr_fmode" type="text">
 
-                                                <div class="sheet-item" style="width: 16%; float: right;">
-                                                    <button name="roll_rangeddamage" type="roll"
-                                                        value="@{abilityroll} &{template:inq} {{rollname=@{rangedweaponname} ^{damage}}} {{damage=[[@{rangedweapondamage}]]}} {{damagetype=@{damageType}}} {{special=@{rangedweaponspecial}}}">
-                                                        <label data-i18n="damage">Damage</label>
-                                                    </button>
-                                                </div>
-                                            </div>
+                                        <div class="sheet-item" style="width:8%">
+                                            <label data-i18n="clip:">Clip:</label>
+                                        </div>
+                                        <div class="sheet-item" style="width:10%">
+                                            <input name="attr_rangedweaponclipcurrent" type="number"
+                                                value="0">
+                                        </div>
+                                        <div class="sheet-item" style="width:2%">
+                                            <label>/</label>
+                                        </div>
+                                        <div class="sheet-item" style="width:10%">
+                                            <input name="attr_rangedweaponclipfull" type="number"
+                                                value="0">
+                                        </div>
 
-                                            <div class="sheet-row">
-                                                <div class="sheet-item" style="width:15%">
-                                                    <label data-i18n="fmode">F Mode:</label>
-                                                </div>
-                                                <div class="sheet-item" style=width:10%>
-                                                    <input name="attr_fmode" type="text">
+                                        <div class="sheet-item" style="width:10%">
+                                            <label data-i18n="reload:">Rld:</label>
+                                        </div>
+                                        <div class="sheet-item" style="width:10%">
+                                            <input name="attr_rangedweaponreload" type="text">
+                                        </div>
 
-                                                    <div class="sheet-item" style="width:8%">
-                                                        <label data-i18n="clip:">Clip:</label>
-                                                    </div>
-                                                    <div class="sheet-item" style="width:10%">
-                                                        <input name="attr_rangedweaponclipcurrent" type="number"
-                                                            value="0">
-                                                    </div>
-                                                    <div class="sheet-item" style="width:2%">
-                                                        <label>/</label>
-                                                    </div>
-                                                    <div class="sheet-item" style="width:10%">
-                                                        <input name="attr_rangedweaponclipfull" type="number"
-                                                            value="0">
-                                                    </div>
+                                        <div class="sheet-item" style="width:15%">
+                                            <label data-i18n="weight:">Weight:</label>
+                                        </div>
+                                        <div class="sheet-item" style="width:10%">
+                                            <input name="attr_weight" type="text">
+                                        </div>
+                                    </div>
 
-                                                    <div class="sheet-item" style="width:10%">
-                                                        <label data-i18n="reload:">Rld:</label>
-                                                    </div>
-                                                    <div class="sheet-item" style="width:10%">
-                                                        <input name="attr_rangedweaponreload" type="text">
-                                                    </div>
-
-                                                    <div class="sheet-item" style="width:15%">
-                                                        <label data-i18n="weight:">Weight:</label>
-                                                    </div>
-                                                    <div class="sheet-item" style="width:10%">
-                                                        <input name="attr_weight" type="text">
-                                                    </div>
-                                                </div>
-
-                                                <div class="sheet-row">
-                                                    <div class="sheet-item" style="width:15%">
-                                                        <label data-i18n="special:">Special:</label>
-                                                    </div>
-                                                    <div class="sheet-item" style="width:75%">
-                                                        <input name="attr_rangedweaponspecial" type="text">
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    <div class="sheet-row">
+                                        <div class="sheet-item" style="width:15%">
+                                            <label data-i18n="special:">Special:</label>
+                                        </div>
+                                        <div class="sheet-item" style="width:75%">
+                                            <input name="attr_rangedweaponspecial" type="text">
+                                        </div>
+                                    </div>
+                                </div>
                             </fieldset>
                         </div>
 
