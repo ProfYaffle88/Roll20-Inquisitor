@@ -156,7 +156,7 @@
 
                             <!--Injury Buttons-->
                             <div class="sheet-col sheet-quickborder">
-                                <label data-i18n="biv" style="width: 48%;">BIV:</label>
+                                <label data-i18n="biv" style="width: 48%;">BIV :</label>
                                 <input name="attr_biv" type="number" value="round(@{T} / 10)" style="width: 48%;" disabled="true">
 
                                 <button name="roll_systemshock" type="roll" style="width: 48%;" value="@{abilityroll} &{template:inq} {{rollname=^{rollss}}} [[([[1d100]])]] {{roll=$[[1]]}} {{skill=@{T}}} {{target=[[@{T} + ?{Modifier|0}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
