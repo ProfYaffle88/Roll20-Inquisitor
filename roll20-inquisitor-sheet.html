@@ -149,7 +149,7 @@
                                 </button>
 
                                 <button name="roll_parry" type="roll" style="width: 75%;"
-                                    value="@{abilityroll} &{template:inq} {{rollname=^{rollp}}} [[([[1d100]]+?{Modifier|0})]] {{roll=$[[1]]}} {{skill=@{WS}}} {{target=[[(@{WS} + ?{Parry penalty|0} + ?{Reach difference? | none (0),0 | +1 (10),10 | +2 (20),20 | +3 (30),30 | +4 (40),40 | -1 (-10),-10 | -2 (-20),-20 | -3 (-30),-30 | -4 (-40),-40} + ?{High Ground? | no (0),0 | yes (10),10} + ?{Prone! | no (0),0 | yes (-20),20} + ?{Facing? | head on (0),0 | from side (-20),-20 | from behind (-40),-40} + ?{Using off hand? | no (0),0 | yes (-20),20} + ?{Using two weapons? | no (0),0 | yes (20),20}) * ?{Times this turn | first (1),1 | second (0.5),0.5 | third (0.25),0.25 | fourth (0.13),0.13}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
+                                    value="@{abilityroll} &{template:inq} {{rollname=^{rollp}}} [[([[1d100]]+?{Modifier|0})]] {{roll=$[[1]]}} {{skill=@{WS}}} {{target=[[(@{WS} + ?{Parry penalty|0} + ?{Reach difference? | none (0),0 | +1 (10),10 | +2 (20),20 | +3 (30),30 | +4 (40),40 | -1 (-10),-10 | -2 (-20),-20 | -3 (-30),-30 | -4 (-40),-40} + ?{High Ground? | no (0),0 | yes (10),10} + ?{Prone! | no (0),0 | yes (-20),20} + ?{Facing? | head on (0),0 | from side (-20),-20 | from behind (-40),-40} + ?{Using off hand? | no (0),0 | yes (-20),-20} + ?{Using two weapons? | no (0),0 | yes (20),20}) * ?{Times this turn | first (1),1 | second (0.5),0.5 | third (0.25),0.25 | fourth (0.13),0.13}]]}} {{modifier=?{Modifier|0}}} {{diceroll=$[[0]]}}">
                                     <label data-i18n="parryP">Parry</label>
                                 </button>
                             </div>
@@ -381,7 +381,7 @@
                                         </div>
                                         <div class="sheet-item" style="width:10%; float: right;">
                                             <button name="roll_meleehit" type="roll"
-                                                value="@{abilityroll} &{template:inq} {{rollname=@{meleeweaponname} ^{tohit}}} [[[[1d100]]+?{Modifier|0}]] {{weapondiceroll=$[[0]]}} {{roll=$[[1]]}} {{target=[[@{WS}+?{Melee Attack Type | Standard (0),0 | Charge (10),10}]]}} {{meleeattacktype=?{Melee Attack Type | }}} {{modifier=?{Modifier|}}}">
+                                                value="@{abilityroll} &{template:inq} {{rollname=@{meleeweaponname} ^{tohit}}} [[[[1d100]]+?{Modifier|0}]] {{weapondiceroll=$[[0]]}} {{roll=$[[1]]}} {{target=[[@{WS} + ?{Melee Attack Type | Standard (0),0 | Charge (10),10} + ?{High Ground? | no (0),0 | yes (10),10} + ?{Prone! | no (0),0 | yes (-20),20} + ?{Facing? | head on (0),0 | from side (20),20 | from behind (40),40} + ?{Using off hand? | no (0),0 | yes (-20),-20} + ?{Using two weapons? | no (0),0 | yes (-20),-20}]]}} {{meleeattacktype=?{Melee Attack Type | }}} {{highground=?{High Ground? | }}} {{prone=?{Prone! |}}} {{facing=?{Facing? | }}} {{offhand=?{Using off hand? | }}} {{dualwield=?{Using two weapons? | }}} {{modifier=?{Modifier|}}}">
                                                 <label data-i18n="hit">Hit</label>
                                             </button>
                                         </div>
@@ -538,6 +538,30 @@
             <td><span class="sheet-inlinerollresult">{{offhand}}</span></td>
         </tr>
         {{/offhand}}
+        {{#highground}}
+        <tr>
+            <td><span class="sheet-tcat" data-i18n="highground:">High Ground: </span></td>
+            <td><span class="sheet-inlinerollresult">{{highground}}</span></td>
+        </tr>
+        {{/highground}}
+        {{#prone}}
+        <tr>
+            <td><span class="sheet-tcat" data-i18n="prone:">Prone: </span></td>
+            <td><span class="sheet-inlinerollresult">{{prone}}</span></td>
+        </tr>
+        {{/prone}}
+        {{#facing}}
+        <tr>
+            <td><span class="sheet-tcat" data-i18n="facing:">Facing: </span></td>
+            <td><span class="sheet-inlinerollresult">{{facing}}</span></td>
+        </tr>
+        {{/facing}}
+        {{#dualwield}}
+        <tr>
+            <td><span class="sheet-tcat" data-i18n="dualwield:">Using Two Weapons: </span></td>
+            <td><span class="sheet-inlinerollresult">{{dualwield}}</span></td>
+        </tr>
+        {{/dualwield}}
         {{#restedweapon}}
         <tr>
             <td><span class="sheet-tcat" data-i18n="restedweapon:">Rested Weapon: </span></td>
