@@ -262,10 +262,6 @@
 
                                         <!-- <div class="sheet-rangehide" data-i18n="range_description:"></div> -->
                                         <div class="sheet-item" style="width: 9%; float: right;">
-                                            <!-- <button name="roll_rangedhit" type="roll"
-                                                value="@{abilityroll} &{template:inq} {{rollname=@{rangedweaponname} ^{tohit}}} [[(@{BS} ?{Aim | No aim (+0),+0 | One aim (+20),+20 | Two aim (+40),+40 | Three aim (+60),+60} ?{Range | 1-5 Yards | 6-10 Yards | 11-15 Yards | 16-20 Yards | 21-25 Yards | 26-30 Yards | 31-35 Yards | 36-40 Yards | 41-45 Yards | 46-50 Yards | 51-55 Yards | 56-60 Yards | 61-65 Yards | 66-70 Yards | 71-75 Yards} ?{Off hand | No (+0),+0 | Yes (-20),-20} ?{Rested Weapon | No (+0),+0 | Yes (+10),+10} ?{Target movement | Stationary (+0),+0 | Ran (-8),-8 | Sprinted (-12),-12 | Evaded (-20),-20} ?{Shots per Action | Standard/Single fire (+0),+0 | Semi auto: two shots (+20),+20 | Semi auto: three shots (+30),+30 | Semi auto: four shots (+40),+40 | Semi auto: five shots (+50),+50 | Semi auto: six shots (+60),+60} + ?{Modifier|0}+[[1d100]])]] {{weapondiceroll=$[[0]]}} {{roll=$[[1]]}} {{skill=@{BS}}} {{target=@{BS} ?{Aim | } ?{Range | } ?{Off hand | } ?{Rested Weapon | } ?{Target movement | } ?{Shots per Action | } + ?{Modifier|0}]]}} {{aim=?{Aim | }}} {{offhand=?{Off hand | }}} {{restedweapon=?{Rested Weapon | }}} {{targetmove=?{Target movement | }}} {{attacktype=?{Shots per Action | }}} {{modifier=?{Modifier|0}}}">
-                                                <label data-i18n="hit">Hit</label>
-                                            </button> -->
                                             <button name="roll_rangedhit" type="roll" 
                                                 value="@{abilityroll} &{template:inq} {{rollname=@{rangedweaponname} ^{tohit}}} [[[[1d100]]+?{Modifier|0}]] {{weapondiceroll=$[[0]]}} {{roll=$[[1]]}} {{skill=@{BS}}} {{target=[[@{BS} + ?{Aim | No aim (0),0 | One aim (20),20 | Two aim (40),40 | Three aim (60),60} + ?{Range | 1-5 Yards (0),0 | 6-10 Yards (0),0 | 11-15 Yards (0),0 | 16-20 Yards (0),0 | 21-25 Yards (0),0 | 26-30 Yards (0),0 | 31-35 Yards (0),0 | 36-40 Yards (0),0 | 41-45 Yards (0),0 | 46-50 Yards (0),0 | 51-55 Yards (0),0 | 56-60 Yards (0),0 | 61-65 Yards (0),0 | 66-70 Yards (0),0 | 71-75 Yards (0),0} + ?{Off hand | no (0),0 | yes (20),20} + ?{Rested Weapon | no (0),0 | yes (10),10} + ?{Shooter movement | no (0),0 | walked (-40),-40 | ran (-60),-60} + ?{Target movement | stationary (0),0 | walking (-8),-8 | running/sprinting (-10),10} + ?{Shots per Action | single fire (0),0 | semi, 1 shot (-10),10 | semi, 2 shots (-20),-20 | semi, 3 shots (-30)-30} + ?{Modifier|0}]]}} {{aim=?{Aim | }}} {{range=?{Range | }}} {{offhand=?{Off hand | }}} {{restedweapon=?{Rested Weapon | }}} {{shootermove=?{Shooter movement | }}} {{targetmove=?{Target movement | }}} {{firemode=?{Shots per Action | }}} {{modifier=?{Modifier|0}}}">
                                                 <label data-i18n="hit">Hit</label>
@@ -385,7 +381,7 @@
                                         </div>
                                         <div class="sheet-item" style="width:10%; float: right;">
                                             <button name="roll_meleehit" type="roll"
-                                                value="@{abilityroll} &{template:inq} {{rollname=@{meleeweaponname} ^{tohit}}} [[[[1d100]]+?{Modifier|0}]] {{weapondiceroll=$[[0]]}} {{roll=$[[1]]}} {{target=[[@{WS}-?{Attack Type | Standard (+0),+0 | Charge (+10),+10}]]}} {{attacktype=?{Attack Type|0}}} {{modifier=?{Modifier|0}}}">
+                                                value="@{abilityroll} &{template:inq} {{rollname=@{meleeweaponname} ^{tohit}}} [[[[1d100]]+?{Modifier|0}]] {{weapondiceroll=$[[0]]}} {{roll=$[[1]]}} {{target=[[@{WS}+?{Melee Attack Type | Standard (0),0 | Charge (10),10}]]}} {{meleeattacktype=?{Melee Attack Type | }}} {{modifier=?{Modifier|}}}">
                                                 <label data-i18n="hit">Hit</label>
                                             </button>
                                         </div>
@@ -530,6 +526,12 @@
             <td><span class="sheet-inlinerollresult">{{aim}}</span></td>
         </tr>
         {{/aim}}
+        {{#range}}
+        <tr>
+            <td><span class="sheet-tcat" data-i18n="range:">Range: </span></td>
+            <td><span class="sheet-inlinerollresult">{{range}}</span></td>
+        </tr>
+        {{/range}}
         {{#offhand}}
         <tr>
             <td><span class="sheet-tcat" data-i18n="offhand:">Off hand: </span></td>
@@ -554,12 +556,18 @@
             <td><span class="sheet-inlinerollresult">{{offhand}}</span></td>
         </tr>
         {{/shootermove}}
-        {{#attacktype}}
+        {{#firemode}}
         <tr>
-            <td><span class="sheet-tcat" data-i18n="attacktype:">Shots per Action: </span></td>
-            <td><span class="sheet-inlinerollresult">{{attacktype}}</span></td>
+            <td><span class="sheet-tcat" data-i18n="firemode:">Shots per Action: </span></td>
+            <td><span class="sheet-inlinerollresult">{{firemode}}</span></td>
         </tr>
-        {{/attacktype}}
+        {{/firemode}}
+        {{#meleeattacktype}}
+        <tr>
+            <td><span class="sheet-tcat" data-i18n="meleeattacktype:">Melee Attack Type: </span></td>
+            <td><span class="sheet-inlinerollresult">{{meleeattacktype}}</span></td>
+        </tr>
+        {{/meleeattacktype}}
         {{#modifier}}
         <tr>
             <td><span class="sheet-tcat" data-i18n="modifier:">Modifier: </span></td>

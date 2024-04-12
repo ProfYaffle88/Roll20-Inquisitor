@@ -141,6 +141,7 @@
 	"targetmove:": "Target movement :",
 	"shootermove:": "Shooter movement :",
 	"attacktype:": "Attack Type :",
+	"meleeattacktype:": "Melee Attack Type :",
 	"firemode:": "Shots per Action :",
 	"modifier:": "Modifier",
 	"success": "Success",
