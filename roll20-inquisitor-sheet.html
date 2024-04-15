@@ -729,13 +729,17 @@
 
 
 <script type="text/worker">
+/* ---- BEGIN: TheAaronSheet.js ---- */
 // Github:   https://github.com/shdwjk/TheAaronSheet/blob/master/TheAaronSheet.js
 // By:       The Aaron, Arcane Scriptomancer
 // Contact:  https://app.roll20.net/users/104025/the-aaron
+
 var TAS = TAS || (function(){
     'use strict';
-    var version = '0.2.3',
-        lastUpdate = 1457098056,
+
+    var version = '0.2.5',
+        lastUpdate = 1504710542,
+
         loggingSettings = {
             debug: {
                 key:     'debug',
@@ -828,6 +832,8 @@ var TAS = TAS || (function(){
                 }
             }
         },
+
+
         config = {
             debugMode: false,
             logging: {
@@ -839,8 +845,10 @@ var TAS = TAS || (function(){
                 debug: false
             }
         },
+
         callstackRegistry = [],
-		queuedUpdates = {}, //< Used for delaying saves till the last momment.
+		queuedUpdates = {}, //< Used for delaying saves till the last moment.
+
     complexType = function(o){
         switch(typeof o){
             case 'string':
@@ -857,6 +865,7 @@ var TAS = TAS || (function(){
                 return typeof o;
         }
     },
+
 	dataLogger = function(primaryLogger,secondaryLogger,data){
         _.each(data,function(m){
             var type = complexType(m);
@@ -884,6 +893,8 @@ var TAS = TAS || (function(){
             }
         });
 	},
+
+
     colorLog = function(options){
         var coloredLoggerFunction,
             key = options.key,
@@ -892,19 +903,25 @@ var TAS = TAS || (function(){
             lTxtColor = (options.color && options.color.label) || 'white',
             mBGColor = (options.color && options.color.bgText) || 'blue',
             mTxtColor = (options.color && options.color.text) || 'white';
+
         coloredLoggerFunction = function(message){
+            /* eslint-disable no-console */
             console.log(
                 '%c '+label+': %c '+message + ' ',
                 'background-color: '+lBGColor+';color: '+lTxtColor+'; font-weight:bold;',
                 'background-color: '+mBGColor+';color: '+mTxtColor+';'
             ); 
+            /* eslint-enable no-console */
         };
         return function(){
             if('TAS'===key || config.logging[key]){
+                /* eslint-disable no-console */
                dataLogger(coloredLoggerFunction,function(m){console.log(m);},_.toArray(arguments)); 
+                /* eslint-enable no-console */
             }
         };
     },
+
     logDebug  = colorLog(loggingSettings.debug),
     logError  = colorLog(loggingSettings.error),
     logWarn   = colorLog(loggingSettings.warn),
@@ -914,6 +931,7 @@ var TAS = TAS || (function(){
     log       = colorLog(loggingSettings.TAS),
     logCS     = colorLog(loggingSettings.callstack),
     logCSA    = colorLog(loggingSettings.callstack_async),
+
     registerCallstack = function(callstack,label){
         var idx=_.findIndex(callstackRegistry,function(o){
             return (_.difference(o.stack,callstack).length === _.difference(callstack,o.stack).length) &&
@@ -929,6 +947,7 @@ var TAS = TAS || (function(){
         }
         return idx;
     },
+
     setConfigOption = function(options){
         var newconf =_.defaults(options,config);
         newconf.logging=_.defaults(
@@ -938,13 +957,18 @@ var TAS = TAS || (function(){
         config=newconf;
     },
     
+    isDebugMode = function(){
+        return config.debugMode;
+    },
+
     debugMode = function(){
         config.logging.debug=true;
         config.debugMode = true;
     },
+
     getCallstack = function(){
         var e = new Error('dummy'),
-            stack = _.map(_.rest(e.stack.replace(/^[^\(]+?[\n$]/gm, '')
+            stack = _.map(_.rest(e.stack.replace(/^[^(]+?[\n$]/gm, '')
             .replace(/^\s+at\s+/gm, '')
             .replace(/^Object.<anonymous>\s*\(/gm, '{anonymous}()@')
             .split('\n')),function(l){
@@ -976,6 +1000,8 @@ var TAS = TAS || (function(){
             log('=========================================================================');
         }
     },
+
+
     wrapCallback = function (label, callback, context){
         var callstack;
         if('function' === typeof label){
@@ -996,23 +1022,31 @@ var TAS = TAS || (function(){
         
         return (function(cb,ctx,cs,lbl){
             var ctxref=registerCallstack(cs,lbl);
+
             /*jshint -W054 */
             return new Function('cb','ctx','TASlog',
                 "return function TAS_CALLSTACK_"+ctxref+"(){"+
+                    "var start,end;"+
                     "TASlog('Entering: '+(cb.name||'(anonymous function)'));"+
+                    "start=_.now();"+
                     "cb.apply(ctx||{},arguments);"+
-                    "TASlog('Exiting: '+(cb.name||'(anonymous function)'));"+
+                    "end=_.now();"+
+                    "TASlog('Exiting: '+(cb.name||'(anonymous function)')+' :: '+(end-start)+'ms elapsed');"+
                 "};")(cb,ctx,log);
             /*jshint +W054 */
         }(callback,context,callstack,label));
     },
+
+
     prepareUpdate = function( attribute, value ){
         queuedUpdates[attribute]=value;
     },
+
     applyQueuedUpdates = function() {
       setAttrs(queuedUpdates);
       queuedUpdates = {};
     },
+
 	namesFromArgs = function(args,base){
         return _.chain(args)
             .reduce(function(memo,attr){
@@ -1026,18 +1060,21 @@ var TAS = TAS || (function(){
             .uniq()
             .value();
 	},
+
 	addId = function(obj,value){
 		Object.defineProperty(obj,'id',{
 			value: value,
-			writeable: false,
+			writable: false,
 			enumerable: false
 		});
 	},
+
 	addProp = function(obj,prop,value,fullname){
 		(function(){
             var pname=(_.contains(['S','F','I','D'],prop) ? '_'+prop : prop),
-			    full_pname = fullname || prop,
+                full_pname = fullname || prop,
                 pvalue=value;
+
             _.each(['S','I','F'],function(p){
                 if( !_.has(obj,p)){
                     Object.defineProperty(obj, p, {
@@ -1061,6 +1098,8 @@ var TAS = TAS || (function(){
                     readonly: true
                 });
             }
+
+
             // Raw value
 			Object.defineProperty(obj, pname, {
                 enumerable: true,
@@ -1089,6 +1128,7 @@ var TAS = TAS || (function(){
 					return pvalue.toString();
 				}
 			});
+
             // int value
 			Object.defineProperty(obj.I, pname, {
                 enumerable: true,
@@ -1103,6 +1143,7 @@ var TAS = TAS || (function(){
 					return parseInt(pvalue,10) || 0;
 				}
 			});
+
             // float value
 			Object.defineProperty(obj.F, pname, {
                 enumerable: true,
@@ -1132,6 +1173,7 @@ var TAS = TAS || (function(){
                     }
                 });
             });
+
 		}());
 	},
 	
@@ -1199,7 +1241,9 @@ var TAS = TAS || (function(){
 					attrSet = {},
 					fieldIds = [],
 					fullFieldNames = [];
+
                 repAfter(callback,context);
+
 				// call each operation per row.
 				// call each operation's final
 				getSectionIDs("repeating_"+sectionName,function(ids){
@@ -1215,6 +1259,7 @@ var TAS = TAS || (function(){
 								addProp(attrSet,aname,values[aname]);
 							}
 						});
+
 						rowSet = _.reduce(fieldIds,function(memo,id){
 							var r={};
 							addId(r,id);
@@ -1222,27 +1267,33 @@ var TAS = TAS || (function(){
 								var fn = 'repeating_'+sectionName+'_'+id+'_'+name;  
 								addProp(r,name,values[fn],fn);
 							});
+
 							memo[id]=r;
+
 							return memo;
 						},{});
+
                         _.each(operations,function(op){
                             var res;
                             switch(op.type){
                                 case 'tap':
                                     _.bind(op.final,op.context,rowSet,attrSet)();
                                     break;
+
                                 case 'each':
                                     _.each(rowSet,function(r){
                                         _.bind(op.func,op.context,r,attrSet,r.id,rowSet)();
                                     });
                                     _.bind(op.final,op.context,rowSet,attrSet)();
                                     break;
+
                                 case 'map':
                                     res = _.map(rowSet,function(r){
                                         return _.bind(op.func,op.context,r,attrSet,r.id,rowSet)();
                                     });
                                     _.bind(op.final,op.context,res,rowSet,attrSet)();
                                     break;
+
                                 case 'reduce':
                                     res = op.memo;
                                     _.each(rowSet,function(r){
@@ -1252,6 +1303,7 @@ var TAS = TAS || (function(){
                                     break;
                             }
                         });
+
                         // finalize attrs
                         applyQueuedUpdates();
                         _.each(after,function(op){
@@ -1264,28 +1316,37 @@ var TAS = TAS || (function(){
 			return {
 				attrs: repAttrs,
 				attr: repAttrs,
+
 				column: repFields,
 				columns: repFields,
 				field: repFields,
 				fields: repFields,
+
 				reduce: repReduce,
 				inject: repReduce,
 				foldl: repReduce,
+
 				map: repMap,
 				collect: repMap,
+
 				each: repEach,
                 forEach: repEach,
+
                 tap: repTap,
                 'do': repTap,
+
 				after: repAfter,
 				last: repAfter,
 				done: repAfter,
+
 				execute: repExecute,
 				go: repExecute,
 				run: repExecute
 			};
 		}(section));
 	},
+
+
     repeatingSimpleSum = function(section, field, destination){
         repeating(section)
             .attr(destination)
@@ -1297,19 +1358,28 @@ var TAS = TAS || (function(){
             })
             .execute();
     };
+
+    /* eslint-disable no-console */
 	console.log('%c•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸  The Aaron Sheet  v'+version+'  ¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•','background: linear-gradient(to right,green,white,white,green); color:black;text-shadow: 0 0 8px white;');
 	console.log('%c•.¸¸.•*´¨`*•.¸¸.•*´¨`*•.¸  Last update: '+(new Date(lastUpdate*1000))+'  ¸.•*´¨`*•.¸¸.•*´¨`*•.¸¸.•','background: linear-gradient(to right,green,white,white,green); color:black;text-shadow: 0 0 8px white;');
+    /* eslint-enable no-console */
+
+
     return {
         /* Repeating Sections */
         repeatingSimpleSum: repeatingSimpleSum,
 		repeating: repeating,
+
         /* Configuration */
         config: setConfigOption,
+
         /* Debugging */
         callback: wrapCallback,
         callstack: logCallstack,
         debugMode: debugMode,
+        isDebugMode: isDebugMode,
         _fn: wrapCallback,
+
         /* Logging */
         debug: logDebug,
         error: logError,
@@ -1319,7 +1389,9 @@ var TAS = TAS || (function(){
         log: logLog
     };
 }());
+
 /* ---- END: TheAaronSheet.js ---- */
+
 
 on("change:gmroll", function(f) {
 	getAttrs(["gmroll"], function(v) {
