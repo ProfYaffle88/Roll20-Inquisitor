@@ -58,11 +58,11 @@ A character has a '*Speed*'. This determines how many actions they can perform a
 
 Characters have *Talents* which are essentially 'Feats' if you are familiar with D&D. Psychic powers, mutations and other special abilities are essentially handled the same way, in that they are items on a character sheet that can be used actively or provide passive benefits. Many Talents provide modifiers for rolls (first iteration - user input, later iterations - automated with JavaScript)
 
-Damage has a location system. Each location has potential levels of injury with associated *immediate* and *prolonged* effects. This ranges from a lightly wounded leg reducing a characters movement speed, all the way up to instant death resulting from a crippled head injury.
+Damage has a *location system*. Each location has potential levels of injury with associated *immediate* and *prolonged* effects. This ranges from a lightly wounded leg reducing a characters movement speed, all the way up to instant death resulting from a crippling head injury.
 
 *Armour* provides damage reduction, cheaper '*ablative*' armour is destroyed as it soaks damage.
 
-*Ranged weapons* have firing modes (single, semi-auto, full-auto), ammunition is tracked, various types (laser, projectile, plasma, melta), and 10 possible range modifer profiles that provide a range of modifiers in 5 yard incrememnts (a pistol has better modifiers at short range and terrible modifiers at long range, while a sniper rifle might have terrible modifiers at short range, great modifiers at optimal range, then worsening modifiers at extreme range). A table of range profiles is included in the repo but this finicky system is a key target for automation.
+*Ranged weapons* have firing modes (single, semi-auto, full-auto), ammunition is tracked, various damage types (laser, projectile, plasma, melta), and 10 possible range modifer profiles that provide a range of modifiers in 5 yard incrememnts (a pistol has better modifiers at short range and terrible modifiers at long range, while a sniper rifle might have terrible modifiers at short range, great modifiers at optimal range, then worsening modifiers at extreme range). A table of range profiles is included in the repo but this finicky system is a key target for automation.
 
 *Melee combat* is fast-paced and unforgiving. Rolls are modified by difference in *reach* of weapons, relative positioning of characters and a host of Talents and abilities. Defenders have the option of *parrying* or *dodging*. A *counter attack* can be achieved relavtively easily by rolling well on a parry, but both dodging and parrying get much more difficult with each subsequent attempt in a turn.
 
@@ -88,7 +88,7 @@ ___
 
 ### Features to be Added
 
-- Counterattck check for parry rolls
+- Counterattack check for parry rolls
 
 - Talents & Abilities
 
@@ -97,6 +97,14 @@ ___
 ___
 ### Usage Notes
 
+- Some PNGs of key rules/tables are provided in `Roll20-Inquisitor\assets\supporting assets` for uploading to your campaign in order to reference the rules from within the game.
 
+- Queries during rolls:
+  - The generic "modifer" query. All rolls contain a Modifier query that represents the will of the GM. This has been re-labelled as "GM Modifier" for clarity.
+  - The "Range" query currently does not apply a modifier. Instead, please use one of the provided resources to look up the modifier and apply it as a GM modifier to the roll. Apologies for the inconvenience!
+
+- Turn Order:
+  - Characters act in speed order with Initiative as a tie-breaker; there's no "roll for initiative".
+  - Right now, the easiest way to manage this is to create a turn order, add the tokens to it and manually input arbitrary numbers to get the correct order. I know, I know, it hurts me too, it's on the list.
 ___
 ### Change Log
