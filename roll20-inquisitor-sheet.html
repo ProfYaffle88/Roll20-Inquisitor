@@ -1390,8 +1390,72 @@ var TAS = TAS || (function(){
     };
 }());
 
-/* ---- END: TheAaronSheet.js ---- */
+/* TAS config */
+TAS.config({
+    logging:{
+        log: true,
+        notice: true,
+        info: true,
+        warn: true,
+        error: true,
+        debug: true
+    }
+});
 
+/* TAS Function logging */
+(function(){
+
+    // Event listener to handle chat messages
+    on("chat:message", function(msg) {
+        // Debugging statement to confirm receipt of chat message
+        TAS.debug("Received chat message:", msg);
+        var rollResult = msg.content.diceroll;
+        var targetMatch = rollResult.match(/\[\[(\d+)\]\]/);
+        var target = parseInt(targetMatch[1]);
+        var critTarget = Math.ceil(target * 0.1);
+
+        // Call the processRollResult function if the message type is "rollresult"
+        if (msg.type === "rollresult" && msg.rolltemplate === "rolltemplate-inq" && rollResult < critTarget) {
+            processRollResult(msg);
+        }
+    });
+
+    // Function to process roll results
+    function processRollResult(msg) {
+        // Debugging statement to confirm that the message is received
+        TAS.debug("Received message:", msg);
+        var weaponType = getAttrByName(characterId, "weaponType");
+        var critEffect = "";
+    
+        // Determine the critEffect based on weapon type
+        if (weaponType.toLowerCase() === "ranged") {
+            critEffect = "Placed Shot = +/- 20% to location roll!";
+        } else if (weaponType.toLowerCase() === "melee") {
+            critEffect = "Critical Melee = Double Damage after Damage Roll!";
+        }
+    
+        // Find the position of the closing </td> tag
+        var position = rollResult.lastIndexOf('</td>');
+
+        // Split the roll result HTML into two parts: before and after the closing </td> tag
+        var rollResultBefore = rollResult.slice(0, position);
+        var rollResultAfter = rollResult.slice(position);
+
+        // Construct the modified roll result HTML with the critEffect included in a new <td> element
+        var modifiedRollResult = rollResultBefore + '<th>' + critEffect + '</th>' + rollResultAfter;
+
+        // Send the modified roll result back to the chat
+        sendChat(msg.who, modifiedRollResult);
+
+    }
+});
+
+    console.log('==> Function Logging <=====================================');
+    // Debugging statement to log the processRollResult function
+    TAS.debug(processRollResult);
+
+
+/* ---- END: TheAaronSheet.js ---- */
 
 on("change:gmroll", function(f) {
 	getAttrs(["gmroll"], function(v) {
